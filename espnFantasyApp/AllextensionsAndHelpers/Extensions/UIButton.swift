@@ -43,9 +43,9 @@ extension UIButton {
         }
     }
     
-    func buttonBorder(withRadius radius: CGFloat, width: CGFloat, color:UIColor) {
+    func buttonBorder(withRadius radius: CGFloat, width: CGFloat, color:UIColor? = nil) {
         self.layer.cornerRadius = radius
         self.layer.borderWidth = width
-        self.layer.borderColor = color.cgColor
+        self.layer.borderColor = color?.cgColor
     }
 }

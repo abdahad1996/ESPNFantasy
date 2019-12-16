@@ -79,8 +79,8 @@ class Splash:LBTAFormController{
   imageView.constrainHeight(300)
         let progress = UIProgressView(progressViewStyle: .bar)
         progress.constrainHeight(10)
-        progress.trackTintColor = UIColor(red: 0.86, green: 0.86, blue: 0.86, alpha: 1)
-        progress.progressTintColor = UIColor(red: 0.24, green: 0.96, blue: 0.16, alpha: 1)
+        progress.trackTintColor = MyColors.progresstrackTintColor
+        progress.progressTintColor = MyColors.progressTintColor
         progress.progress = 0.1
         let spacer = UIView().withHeight(200)
         
@@ -90,13 +90,7 @@ class Splash:LBTAFormController{
         formContainerStackView.addArrangedSubview(spacer)
         formContainerStackView.addArrangedSubview(imageView)
         formContainerStackView.addArrangedSubview(progress)
-//        formContainerStackView.addArrangedSubview(UIView())
-//        UIView.transition(with: progress, duration: 10, options: .curveEaseInOut, animations: {
-//             print("start")
-//                progress.setProgress(1.0, animated: true)
-//        }) { (true) in
-//            self.checkSession()
-//        }
+
  
         UIView.transition(with: progress,
                           duration:4,
