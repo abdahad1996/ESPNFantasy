@@ -16,8 +16,10 @@ class segmentedMenuBar:UIView,UICollectionViewDelegateFlowLayout{
     lazy var collectionView: UICollectionView = {
         let layout = UICollectionViewLayout()
 //        let cv = UICollectionView(frame: .zero, collectionViewLayout: layout)
+        
         let horizontalSnappingLayout =  BetterSnappingLayout()
         horizontalSnappingLayout.scrollDirection = .horizontal
+//        layout.scrollDirection = .horizontal
         let cv = UICollectionView(frame: .zero, collectionViewLayout: horizontalSnappingLayout)
         cv.decelerationRate = .fast
         cv.dataSource = self
@@ -25,19 +27,23 @@ class segmentedMenuBar:UIView,UICollectionViewDelegateFlowLayout{
         return cv
     }()
     
-    let imageNames = ["Dashboard", "Rugby", "BasketBall", "Hockey","Baseball","Play"]
+    let imageNames = ["Dashboard", "rugby", "basketBall", "hockey","baseball","play"]
 
     override init(frame: CGRect) {
         super.init(frame: frame)
 //        collectionView.register(segmentedMenuCell.self, forCellWithReuseIdentifier: cellId)
 //        stack(collectionView)
+        backgroundColor = .white 
         collectionView.register(segmentedMenuCell.self, forCellWithReuseIdentifier: cellId)
          stack(collectionView)
     }
     
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return .init(width: self.frame.width/4, height: frame.height)
+        return .init(width: (self.frame.width)/CGFloat(imageNames.count), height: frame.height)
+    }
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
+        return 0
     }
     
     required init?(coder: NSCoder) {
@@ -47,12 +53,13 @@ class segmentedMenuBar:UIView,UICollectionViewDelegateFlowLayout{
 extension segmentedMenuBar :UICollectionViewDelegate,UICollectionViewDataSource{
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return imageNames.count
+//        return 4
        }
        
        func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
                    let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellId, for: indexPath) as! segmentedMenuCell
-        cell.imageView.image = UIImage(named: imageNames[indexPath.item])?.withRenderingMode(.alwaysTemplate)
-        cell.tintColor = UIColor.rgb(red: 91, green: 14, blue: 13)
+         cell.imageView.image = UIImage(named: imageNames[indexPath.item])?.withRenderingMode(.alwaysTemplate)
+        cell.tintColor = .systemRed
         
         return cell
        }
@@ -60,7 +67,10 @@ extension segmentedMenuBar :UICollectionViewDelegate,UICollectionViewDataSource{
 class segmentedMenuCell: BaseCell {
     let imageView = UIImageView(image: #imageLiteral(resourceName: "splash"), contentMode: .scaleAspectFit)
     override func setupViews() {
-        hstack(imageView.withWidth(30).withHeight(30))
-
+       let stack =  hstack(UIView(),imageView.withWidth(30).withHeight(30),UIView())
+        stack.alignment = .fill
+        stack.distribution = .fillEqually
+        backgroundColor = .green
+        
     }
 }

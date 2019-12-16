@@ -5,7 +5,17 @@
 //  Created by prog on 12/15/19.
 //  Copyright © 2019 prog. All rights reserved.
 //
+extension UIViewController {
 
+    /**
+     *  Height of status bar + navigation bar (if navigation bar exist)
+     */
+
+    var topbarHeight: CGFloat {
+        return (view.window?.windowScene?.statusBarManager?.statusBarFrame.height ?? 0.0) +
+            (self.navigationController?.navigationBar.frame.height ?? 0.0)
+    }
+}
  
 import Foundation
 import UIKit
@@ -38,8 +48,9 @@ class Home:BaseListController{
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        collectionView.backgroundColor = .clear
+        collectionView.backgroundColor = .white
         setUpNavBar()
+        setupMenuBar()
     }
     override func viewDidLayoutSubviews() {
         
@@ -48,6 +59,7 @@ class Home:BaseListController{
         let titleView = UIView(backgroundColor: .clear)
                let lessWidth: CGFloat = 30 + 20 + 120 + 35
                let width = (view.frame.width - lessWidth)
+       navigationController?.hidesBarsOnSwipe = true
         titleView.hstack(appLogoImageView.withWidth(120), iconButton.withWidth(30).withHeight(30), UIView().withWidth(width), settingButton.withWidth(20), spacing: 5).padBottom(8)
         if let navigationBar = self.navigationController?.navigationBar  {
              determineGradientByIndexPath(navigationBar: navigationBar, index: 0)
@@ -73,10 +85,10 @@ class Home:BaseListController{
         }
     }
     private func setupMenuBar() {
-           navigationController?.hidesBarsOnSwipe = true
+           
         view.addSubview(menuBar)
 
-        menuBar.anchor(top: view.topAnchor, leading: view.leadingAnchor, bottom: nil, trailing: view.trailingAnchor, padding: .init(top: 50, left: 0, bottom: 0, right: 0), size: .init(width: view.frame.width, height: 50))
+        menuBar.anchor(top: view.safeAreaLayoutGuide.topAnchor, leading: view.leadingAnchor, bottom: nil, trailing: view.trailingAnchor, padding: .init(top: 0, left: 0, bottom: 0, right: 0), size: .init(width: view.frame.width, height: 50))
 //           let redView = UIView()
 //           redView.backgroundColor = UIColor.rgb(red: 230, green: 32, blue: 31)
 //           view.addSubview(redView)
@@ -86,7 +98,7 @@ class Home:BaseListController{
 ////           view.addConstraintsWithFormat("H:|[v0]|", views: menuBar)
 //           view.addConstraintsWithFormat("V:[v0(50)]", views: menuBar)
            
-           menuBar.topAnchor.constraint(equalTo: topLayoutGuide.bottomAnchor).isActive = true
+//           menuBar.topAnchor.constraint(equalTo: topLayoutGuide.bottomAnchor).isActive = true
        }
 }
 
