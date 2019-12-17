@@ -56,8 +56,8 @@ class Login: LBTAFormController {
            print("hellll")
            let window = self.view.window
          
-                 window?.rootViewController = UINavigationController(rootViewController:Home())
-       }
+         window?.rootViewController = CustomNavigationController(rootViewController: Home())
+        }
     @objc func goToSignUpTapped(){
         print("hellll")
        let vc = SignUp()

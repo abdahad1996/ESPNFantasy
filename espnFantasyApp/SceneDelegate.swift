@@ -25,6 +25,8 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // Use a UIHostingController as window root view controller.
         if let windowScene = scene as? UIWindowScene {
             let window = UIWindow(windowScene: windowScene)
+//            UINavigationBar.appearance().shadowImage = UIImage()
+//                            UINavigationBar.appearance().setBackgroundImage(UIImage(), for: .default)
 //            window.rootViewController = UIHostingController(rootView: contentView)
              window.rootViewController = UINavigationController(rootViewController: Splash())
             self.window = window

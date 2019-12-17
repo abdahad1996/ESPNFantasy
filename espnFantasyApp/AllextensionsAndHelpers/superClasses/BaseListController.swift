@@ -7,7 +7,11 @@
 //
 
 import UIKit
-
+class CustomNavigationController: UINavigationController {
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        return .lightContent
+    }
+}
 class BaseListController: UICollectionViewController {
     
     init() {
