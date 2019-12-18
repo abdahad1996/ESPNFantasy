@@ -57,6 +57,8 @@
 		1657F91023A6865F00DECB40 /* gradientNavBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1657F90F23A6865F00DECB40 /* gradientNavBar.swift */; };
 		1657F91223A6C98F00DECB40 /* segmentedMenuBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1657F91123A6C98F00DECB40 /* segmentedMenuBar.swift */; };
 		1657F91423A6CF9B00DECB40 /* BaseCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1657F91323A6CF9B00DECB40 /* BaseCell.swift */; };
+		1657F91723AABE2E00DECB40 /* Dashboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1657F91623AABE2D00DECB40 /* Dashboard.swift */; };
+		1657F91E23AAC0FB00DECB40 /* DashboardCells.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1657F91D23AAC0FA00DECB40 /* DashboardCells.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -112,6 +114,8 @@
 		1657F90F23A6865F00DECB40 /* gradientNavBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = gradientNavBar.swift; sourceTree = "<group>"; };
 		1657F91123A6C98F00DECB40 /* segmentedMenuBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = segmentedMenuBar.swift; sourceTree = "<group>"; };
 		1657F91323A6CF9B00DECB40 /* BaseCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseCell.swift; sourceTree = "<group>"; };
+		1657F91623AABE2D00DECB40 /* Dashboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Dashboard.swift; sourceTree = "<group>"; };
+		1657F91D23AAC0FA00DECB40 /* DashboardCells.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardCells.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -277,10 +281,60 @@
 			path = superClasses;
 			sourceTree = "<group>";
 		};
+		1657F91523AABDFF00DECB40 /* Dashboard */ = {
+			isa = PBXGroup;
+			children = (
+				1657F91623AABE2D00DECB40 /* Dashboard.swift */,
+				1657F91D23AAC0FA00DECB40 /* DashboardCells.swift */,
+			);
+			path = Dashboard;
+			sourceTree = "<group>";
+		};
+		1657F91823AABE4300DECB40 /* Rugby */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Rugby;
+			sourceTree = "<group>";
+		};
+		1657F91923AABE6900DECB40 /* Baseball */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Baseball;
+			sourceTree = "<group>";
+		};
+		1657F91A23AABE7000DECB40 /* BasketBall */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = BasketBall;
+			sourceTree = "<group>";
+		};
+		1657F91B23AABE7B00DECB40 /* Play */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Play;
+			sourceTree = "<group>";
+		};
+		1657F91C23AABE8400DECB40 /* Hockey */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Hockey;
+			sourceTree = "<group>";
+		};
 		16A6301823A6344200F0FAF0 /* Home */ = {
 			isa = PBXGroup;
 			children = (
 				1657F90D23A672F100DECB40 /* Home.swift */,
+				1657F91C23AABE8400DECB40 /* Hockey */,
+				1657F91B23AABE7B00DECB40 /* Play */,
+				1657F91A23AABE7000DECB40 /* BasketBall */,
+				1657F91923AABE6900DECB40 /* Baseball */,
+				1657F91823AABE4300DECB40 /* Rugby */,
+				1657F91523AABDFF00DECB40 /* Dashboard */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -400,8 +454,10 @@
 				1613F24623A2E6A400FA5056 /* SignUp.swift in Sources */,
 				1613F23423A1AA6E00FA5056 /* UITextView.swift in Sources */,
 				1657F90A23A66F0900DECB40 /* BetterSnappingLayout.swift in Sources */,
+				1657F91723AABE2E00DECB40 /* Dashboard.swift in Sources */,
 				1613F22E23A1AA6E00FA5056 /* UIView+Layout.swift in Sources */,
 				1613F22923A1AA6E00FA5056 /* LBTAFormController.swift in Sources */,
+				1657F91E23AAC0FB00DECB40 /* DashboardCells.swift in Sources */,
 				1613F23123A1AA6E00FA5056 /* UIView+Stacking.swift in Sources */,
 				1657F90623A66E9700DECB40 /* HorizontalSnappingController.swift in Sources */,
 				1613F24423A2A3AA00FA5056 /* colors.swift in Sources */,

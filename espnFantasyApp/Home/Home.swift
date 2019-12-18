@@ -50,9 +50,10 @@ class Home:BaseListController,UICollectionViewDelegateFlowLayout{
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        navigationController?.navigationBar.isTranslucent = false
+//        navigationController?.navigationBar.isTranslucent = true
         collectionView.backgroundColor = .white
-         
+//        collectionView.translatesAutoresizingMaskIntoConstraints = false
+//        collectionView.topAnchor.constraint(equalToSystemSpacingBelow: view.topAnchor, multiplier: 1).isActive = true
         
         setupMenuBar()
         setUpNavBar()
@@ -70,7 +71,7 @@ setupCollectionView()
          
          collectionView?.backgroundColor = UIColor.white
          
-         collectionView?.register(UICollectionViewCell.self, forCellWithReuseIdentifier: cellId)
+         collectionView?.register(Dashboard.self, forCellWithReuseIdentifier: cellId)
 //         collectionView?.register(TrendingCell.self, forCellWithReuseIdentifier: trendingCellId)
 //         collectionView?.register(SubscriptionCell.self, forCellWithReuseIdentifier: subscriptionCellId)
         
@@ -85,6 +86,7 @@ setupCollectionView()
     }
     
     func setUpNavBar(){
+//        navigationController?.hidesBarsOnSwipe = true
         let titleView = UIView(backgroundColor: .clear)
                let lessWidth: CGFloat = 30 + 20 + 120 + 35
                let width = (view.frame.width - lessWidth)
@@ -95,16 +97,24 @@ setupCollectionView()
         }
                 navigationItem.titleView = titleView
     }
+    //for calculating indexpath from homescreen eg when dragging. when we click on icon that is done by collectionview
+    //changenavbar color here
     override func scrollViewDidScroll(_ scrollView: UIScrollView) {
 //          for moving horizontal bar
         menuBar.horizontalBarLeftAnchorConstraint?.constant = scrollView.contentOffset.x / 6
        }
-       //indexpath is calcialted when we swipe adn drag is finishd we divide by frame width to get index and den we move menybar accodingly
+       //indexpath is calcialted when we swipe and when n drag is finishd we divide by frame width to get index and den we move menybar accodingly
        override func scrollViewWillEndDragging(_ scrollView: UIScrollView, withVelocity velocity: CGPoint, targetContentOffset: UnsafeMutablePointer<CGPoint>) {
            print(Int(targetContentOffset.pointee.x))
            let index = Int(targetContentOffset.pointee.x / view.frame.width)
            let indexPath = IndexPath(item: index, section: 0)
            menuBar.collectionView.selectItem(at: indexPath, animated: true, scrollPosition: .centeredHorizontally)
+        //setupnavbar colors and menubar horizontalbar color
+        if let navigationBar = self.navigationController?.navigationBar  {
+             determineGradientByIndexPath(navigationBar: navigationBar, index: index)
+            menuBar.determineGradientByIndexPath(index: index)
+
+        }
 //           setTitleForIndex(index: index)
        }
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -112,24 +122,25 @@ setupCollectionView()
        }
        
        override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellId, for: indexPath)
-        switch indexPath.item    {
-        case 0:
-            cell.backgroundColor = .red
-            case 1:
-                       cell.backgroundColor = .yellow
-            case 2:
-                       cell.backgroundColor = .blue
-            case 3:
-                       cell.backgroundColor = .green
-            case 4:
-                       cell.backgroundColor = .yellow
-            case 5:
-                       cell.backgroundColor = .red
-        default:
-                   cell.backgroundColor = .green
-
-        }
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellId, for: indexPath) as? Dashboard else{return UICollectionViewCell() }
+        
+//        switch indexPath.item    {
+//        case 0:
+//            cell.backgroundColor = .red
+//            case 1:
+//                       cell.backgroundColor = .yellow
+//            case 2:
+//                       cell.backgroundColor = .blue
+//            case 3:
+//                       cell.backgroundColor = .green
+//            case 4:
+//                       cell.backgroundColor = .yellow
+//            case 5:
+//                       cell.backgroundColor = .red
+//        default:
+//                   cell.backgroundColor = .green
+//
+//        }
  //           let identifier: String
 //        switch
 //           if indexPath.item == 1 {
@@ -171,18 +182,19 @@ setupCollectionView()
         }
     }
     private func setupMenuBar() {
-           navigationController?.hidesBarsOnSwipe = true
+            
 
         let whiteView = UIView()
         whiteView.backgroundColor = .white
         view.addSubview(whiteView)
-         whiteView.anchor(top: view.safeAreaLayoutGuide.topAnchor, leading: view.leadingAnchor, bottom: nil, trailing: view.trailingAnchor, padding: .init(top: 0, left: 0, bottom: 0, right: 0), size: .init(width: view.frame.width, height: 50))
+        //for dragging when no view we add default whiteview for navbar
+         whiteView.anchor(top: view.topAnchor, leading: view.leadingAnchor, bottom: nil, trailing: view.trailingAnchor, padding: .init(top: 0, left: 0, bottom: 0, right: 0), size: .init(width: view.frame.width, height: 50))
 
         view.addSubview(menuBar)
         menuBar.anchor(top: view.safeAreaLayoutGuide.topAnchor, leading: view.leadingAnchor, bottom: nil, trailing: view.trailingAnchor, padding: .init(top: 0, left: 0, bottom: 0, right: 0), size: .init(width: view.frame.width, height: 50))
       
 
-        
+        globalTotalHeigt = topbarHeight
         menuBar.setupShadow(opacity: 1, radius: 12, offset: .init(width: 0, height: 4), color: UIColor(red: 0, green: 0, blue: 0, alpha: 0.17) )
 //           let redView = UIView()
 //           redView.backgroundColor = UIColor.rgb(red: 230, green: 32, blue: 31)
@@ -201,7 +213,12 @@ extension Home:scroll {
     func scrollToMenuIndex(menuIndex: Int){
         let indexPath = IndexPath(item: menuIndex, section: 0)
         collectionView?.scrollToItem(at: indexPath, at: .centeredHorizontally, animated: true)
-        
+        //setupnavbar colors
+        if let navigationBar = self.navigationController?.navigationBar  {
+             determineGradientByIndexPath(navigationBar: navigationBar, index: menuIndex)
+            menuBar.determineGradientByIndexPath(index: menuIndex)
+
+        }
 //        setTitleForIndex(index: menuIndex)
         
     }
