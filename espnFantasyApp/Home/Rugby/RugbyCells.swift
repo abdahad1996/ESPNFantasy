@@ -49,7 +49,7 @@ class RugbyCells: BaseCell {
     
     override func setupViews() {
         backgroundColor = .white
-        let v1 = stack(textlabel,UIView(),textlabel2).padTop(10)
+        let v1 = stack(textlabel,UIView(),textlabel2,UIView().withHeight(10)).padTop(10)
        let mainStack = hstack(image,v1,UIView())
         mainStack.spacing = 10
        

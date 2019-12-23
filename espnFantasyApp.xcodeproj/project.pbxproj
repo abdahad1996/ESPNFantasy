@@ -50,6 +50,10 @@
 		1613F26323A4F00400FA5056 /* Fonts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1613F26223A4F00400FA5056 /* Fonts.swift */; };
 		16161C7223AF5E6300A4F9C0 /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16161C7123AF5E6300A4F9C0 /* CardView.swift */; };
 		16161C7423AFC77300A4F9C0 /* RugbyVideoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16161C7323AFC77300A4F9C0 /* RugbyVideoCell.swift */; };
+		16161C7623B1278900A4F9C0 /* Hockey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16161C7523B1278900A4F9C0 /* Hockey.swift */; };
+		16161C7823B127B000A4F9C0 /* HockeyCells.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16161C7723B127B000A4F9C0 /* HockeyCells.swift */; };
+		16161C7A23B1686400A4F9C0 /* Play.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16161C7923B1686400A4F9C0 /* Play.swift */; };
+		16161C7C23B1687600A4F9C0 /* PlayCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16161C7B23B1687600A4F9C0 /* PlayCell.swift */; };
 		1657F90223A66E3900DECB40 /* BaseListController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1657F90123A66E3900DECB40 /* BaseListController.swift */; };
 		1657F90623A66E9700DECB40 /* HorizontalSnappingController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1657F90523A66E9700DECB40 /* HorizontalSnappingController.swift */; };
 		1657F90823A66EB700DECB40 /* BaseTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1657F90723A66EB700DECB40 /* BaseTabBarController.swift */; };
@@ -115,6 +119,10 @@
 		1613F26223A4F00400FA5056 /* Fonts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Fonts.swift; sourceTree = "<group>"; };
 		16161C7123AF5E6300A4F9C0 /* CardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardView.swift; sourceTree = "<group>"; };
 		16161C7323AFC77300A4F9C0 /* RugbyVideoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RugbyVideoCell.swift; sourceTree = "<group>"; };
+		16161C7523B1278900A4F9C0 /* Hockey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Hockey.swift; sourceTree = "<group>"; };
+		16161C7723B127B000A4F9C0 /* HockeyCells.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HockeyCells.swift; sourceTree = "<group>"; };
+		16161C7923B1686400A4F9C0 /* Play.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Play.swift; sourceTree = "<group>"; };
+		16161C7B23B1687600A4F9C0 /* PlayCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayCell.swift; sourceTree = "<group>"; };
 		1657F90123A66E3900DECB40 /* BaseListController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseListController.swift; sourceTree = "<group>"; };
 		1657F90523A66E9700DECB40 /* HorizontalSnappingController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HorizontalSnappingController.swift; sourceTree = "<group>"; };
 		1657F90723A66EB700DECB40 /* BaseTabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseTabBarController.swift; sourceTree = "<group>"; };
@@ -338,6 +346,8 @@
 		1657F91B23AABE7B00DECB40 /* Play */ = {
 			isa = PBXGroup;
 			children = (
+				16161C7923B1686400A4F9C0 /* Play.swift */,
+				16161C7B23B1687600A4F9C0 /* PlayCell.swift */,
 			);
 			path = Play;
 			sourceTree = "<group>";
@@ -345,6 +355,8 @@
 		1657F91C23AABE8400DECB40 /* Hockey */ = {
 			isa = PBXGroup;
 			children = (
+				16161C7523B1278900A4F9C0 /* Hockey.swift */,
+				16161C7723B127B000A4F9C0 /* HockeyCells.swift */,
 			);
 			path = Hockey;
 			sourceTree = "<group>";
@@ -467,6 +479,7 @@
 				1613F23323A1AA6E00FA5056 /* UILabel.swift in Sources */,
 				1613F22F23A1AA6E00FA5056 /* AspectFitImageView.swift in Sources */,
 				1657F91223A6C98F00DECB40 /* segmentedMenuBar.swift in Sources */,
+				16161C7A23B1686400A4F9C0 /* Play.swift in Sources */,
 				1613F23B23A1AA6F00FA5056 /* LBTATools.swift in Sources */,
 				1613F22B23A1AA6E00FA5056 /* UIStackView.swift in Sources */,
 				1657F90223A66E3900DECB40 /* BaseListController.swift in Sources */,
@@ -479,7 +492,9 @@
 				1657F91023A6865F00DECB40 /* gradientNavBar.swift in Sources */,
 				1657F92623ABEF8B00DECB40 /* BaseBallCells.swift in Sources */,
 				1657F91423A6CF9B00DECB40 /* BaseCell.swift in Sources */,
+				16161C7C23B1687600A4F9C0 /* PlayCell.swift in Sources */,
 				1613F24623A2E6A400FA5056 /* SignUp.swift in Sources */,
+				16161C7623B1278900A4F9C0 /* Hockey.swift in Sources */,
 				1613F23423A1AA6E00FA5056 /* UITextView.swift in Sources */,
 				1657F90A23A66F0900DECB40 /* BetterSnappingLayout.swift in Sources */,
 				1657F91723AABE2E00DECB40 /* Dashboard.swift in Sources */,
@@ -500,6 +515,7 @@
 				1613F20123A1AA5800FA5056 /* ContentView.swift in Sources */,
 				1613F23A23A1AA6F00FA5056 /* LBTAListHeaderFooterController.swift in Sources */,
 				16161C7223AF5E6300A4F9C0 /* CardView.swift in Sources */,
+				16161C7823B127B000A4F9C0 /* HockeyCells.swift in Sources */,
 				1657F92223ABEF6A00DECB40 /* RugbyCells.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

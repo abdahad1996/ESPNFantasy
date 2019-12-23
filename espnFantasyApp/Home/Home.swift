@@ -76,6 +76,8 @@ setupCollectionView()
          collectionView?.register(Rugby.self, forCellWithReuseIdentifier: HomeSettings.Rugby.rawValue)
         
          collectionView?.register(BasketBall.self, forCellWithReuseIdentifier: HomeSettings.BasketBall.rawValue)
+        collectionView?.register(Hockey.self, forCellWithReuseIdentifier: HomeSettings.Hockey.rawValue)
+         collectionView?.register(Baseball.self, forCellWithReuseIdentifier: HomeSettings.Baseball.rawValue)
         
 
         
@@ -148,13 +150,13 @@ setupCollectionView()
             return cell
 
             case 3:
-                         identifier = "Dashboard"
-                                                guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "Dashboard", for: indexPath) as? Dashboard else{return UICollectionViewCell() }
+                         identifier = HomeSettings.Hockey.rawValue
+                                                guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: identifier, for: indexPath) as? Hockey else{return UICollectionViewCell() }
                                     return cell
 
             case 4:
-                          identifier = "Dashboard"
-                                                guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "Dashboard", for: indexPath) as? Dashboard else{return UICollectionViewCell() }
+                          identifier = HomeSettings.Baseball.rawValue
+                                                guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: identifier, for: indexPath) as? Baseball else{return UICollectionViewCell() }
                                     return cell
 
             case 5:
@@ -219,6 +221,7 @@ setupCollectionView()
 
         view.addSubview(menuBar)
         menuBar.anchor(top: view.safeAreaLayoutGuide.topAnchor, leading: view.leadingAnchor, bottom: nil, trailing: view.trailingAnchor, padding: .init(top: 0, left: 0, bottom: 0, right: 0), size: .init(width: view.frame.width, height: 50))
+        menuBar.setupShadow(opacity: 1, radius: 14, offset: CGSize(width: 0, height: 1), color:  UIColor(red: 0, green: 0, blue: 0, alpha: 0.17))
       
         //we dont use
         globalTotalHeigt = Int(topbarHeight)
