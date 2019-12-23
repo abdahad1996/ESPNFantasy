@@ -9,11 +9,11 @@
 import Foundation
 
 enum HomeSettings:String {
-    case Dashboard
-    case Rugby
-    case BasketBall
-    case Hockey
-    case Baseball
-    case Play
+    case Dashboard = "Dashboard"
+    case Rugby = "Rugby"
+    case BasketBall = "BasketBall"
+    case Hockey = "Hockey"
+    case Baseball = "Baseball"
+    case Play = "Play"
     
 }

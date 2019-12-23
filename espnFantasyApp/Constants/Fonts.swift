@@ -23,6 +23,11 @@ extension UIFont {
 struct AppFont {
    struct Medium {
       let eight: UIFont = UIFont(name: .Medium, size: 8.0)
+    let twelve: UIFont = UIFont(name: .Medium, size: 12.0)
+    let fourteen: UIFont = UIFont(name: .Medium, size: 14.0)
+    let sixteen: UIFont = UIFont(name: .Medium, size: 16.0)
+
+
    }
    struct Regular {
       let sixteen: UIFont = UIFont(name: .Regular, size: 16.0)
@@ -35,6 +40,12 @@ struct AppFont {
       let sixteen: UIFont = UIFont(name: .Thin, size: 16.0)
    }
     struct Bold {
+        let twelve: UIFont = UIFont(name: .Bold, size: 12.0)
+
        let sixteen: UIFont = UIFont(name: .Bold, size: 16.0)
+        let twenty: UIFont = UIFont(name: .Bold, size: 20.0)
+        let thirtyfour: UIFont = UIFont(name: .Bold, size: 34.0)
+
+
     }
 }

@@ -17,7 +17,7 @@ class BaseCell: UICollectionViewCell {
     }
     
     func setupViews() {
-        
+        backgroundColor = .white
     }
     
     required init?(coder aDecoder: NSCoder) {

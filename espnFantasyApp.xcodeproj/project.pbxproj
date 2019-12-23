@@ -48,6 +48,8 @@
 		1613F26023A4EE1B00FA5056 /* Roboto-BoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 1613F25423A4EE1A00FA5056 /* Roboto-BoldItalic.ttf */; };
 		1613F26123A4EE1B00FA5056 /* Roboto-ThinItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 1613F25523A4EE1B00FA5056 /* Roboto-ThinItalic.ttf */; };
 		1613F26323A4F00400FA5056 /* Fonts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1613F26223A4F00400FA5056 /* Fonts.swift */; };
+		16161C7223AF5E6300A4F9C0 /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16161C7123AF5E6300A4F9C0 /* CardView.swift */; };
+		16161C7423AFC77300A4F9C0 /* RugbyVideoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16161C7323AFC77300A4F9C0 /* RugbyVideoCell.swift */; };
 		1657F90223A66E3900DECB40 /* BaseListController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1657F90123A66E3900DECB40 /* BaseListController.swift */; };
 		1657F90623A66E9700DECB40 /* HorizontalSnappingController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1657F90523A66E9700DECB40 /* HorizontalSnappingController.swift */; };
 		1657F90823A66EB700DECB40 /* BaseTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1657F90723A66EB700DECB40 /* BaseTabBarController.swift */; };
@@ -59,6 +61,12 @@
 		1657F91423A6CF9B00DECB40 /* BaseCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1657F91323A6CF9B00DECB40 /* BaseCell.swift */; };
 		1657F91723AABE2E00DECB40 /* Dashboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1657F91623AABE2D00DECB40 /* Dashboard.swift */; };
 		1657F91E23AAC0FB00DECB40 /* DashboardCells.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1657F91D23AAC0FA00DECB40 /* DashboardCells.swift */; };
+		1657F92023ABEF5E00DECB40 /* Rugby.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1657F91F23ABEF5D00DECB40 /* Rugby.swift */; };
+		1657F92223ABEF6A00DECB40 /* RugbyCells.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1657F92123ABEF6A00DECB40 /* RugbyCells.swift */; };
+		1657F92423ABEF7A00DECB40 /* Baseball.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1657F92323ABEF7A00DECB40 /* Baseball.swift */; };
+		1657F92623ABEF8B00DECB40 /* BaseBallCells.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1657F92523ABEF8B00DECB40 /* BaseBallCells.swift */; };
+		1657F92823ABEFA900DECB40 /* BasketBall.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1657F92723ABEFA900DECB40 /* BasketBall.swift */; };
+		1657F92A23ABEFB700DECB40 /* BasketBallCells.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1657F92923ABEFB700DECB40 /* BasketBallCells.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -105,6 +113,8 @@
 		1613F25423A4EE1A00FA5056 /* Roboto-BoldItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-BoldItalic.ttf"; sourceTree = "<group>"; };
 		1613F25523A4EE1B00FA5056 /* Roboto-ThinItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-ThinItalic.ttf"; sourceTree = "<group>"; };
 		1613F26223A4F00400FA5056 /* Fonts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Fonts.swift; sourceTree = "<group>"; };
+		16161C7123AF5E6300A4F9C0 /* CardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardView.swift; sourceTree = "<group>"; };
+		16161C7323AFC77300A4F9C0 /* RugbyVideoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RugbyVideoCell.swift; sourceTree = "<group>"; };
 		1657F90123A66E3900DECB40 /* BaseListController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseListController.swift; sourceTree = "<group>"; };
 		1657F90523A66E9700DECB40 /* HorizontalSnappingController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HorizontalSnappingController.swift; sourceTree = "<group>"; };
 		1657F90723A66EB700DECB40 /* BaseTabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseTabBarController.swift; sourceTree = "<group>"; };
@@ -116,6 +126,12 @@
 		1657F91323A6CF9B00DECB40 /* BaseCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseCell.swift; sourceTree = "<group>"; };
 		1657F91623AABE2D00DECB40 /* Dashboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Dashboard.swift; sourceTree = "<group>"; };
 		1657F91D23AAC0FA00DECB40 /* DashboardCells.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardCells.swift; sourceTree = "<group>"; };
+		1657F91F23ABEF5D00DECB40 /* Rugby.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Rugby.swift; sourceTree = "<group>"; };
+		1657F92123ABEF6A00DECB40 /* RugbyCells.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RugbyCells.swift; sourceTree = "<group>"; };
+		1657F92323ABEF7A00DECB40 /* Baseball.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Baseball.swift; sourceTree = "<group>"; };
+		1657F92523ABEF8B00DECB40 /* BaseBallCells.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseBallCells.swift; sourceTree = "<group>"; };
+		1657F92723ABEFA900DECB40 /* BasketBall.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasketBall.swift; sourceTree = "<group>"; };
+		1657F92923ABEFB700DECB40 /* BasketBallCells.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasketBallCells.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -277,6 +293,7 @@
 				1657F90723A66EB700DECB40 /* BaseTabBarController.swift */,
 				1657F91123A6C98F00DECB40 /* segmentedMenuBar.swift */,
 				1657F91323A6CF9B00DECB40 /* BaseCell.swift */,
+				16161C7123AF5E6300A4F9C0 /* CardView.swift */,
 			);
 			path = superClasses;
 			sourceTree = "<group>";
@@ -293,6 +310,9 @@
 		1657F91823AABE4300DECB40 /* Rugby */ = {
 			isa = PBXGroup;
 			children = (
+				1657F91F23ABEF5D00DECB40 /* Rugby.swift */,
+				1657F92123ABEF6A00DECB40 /* RugbyCells.swift */,
+				16161C7323AFC77300A4F9C0 /* RugbyVideoCell.swift */,
 			);
 			path = Rugby;
 			sourceTree = "<group>";
@@ -300,6 +320,8 @@
 		1657F91923AABE6900DECB40 /* Baseball */ = {
 			isa = PBXGroup;
 			children = (
+				1657F92323ABEF7A00DECB40 /* Baseball.swift */,
+				1657F92523ABEF8B00DECB40 /* BaseBallCells.swift */,
 			);
 			path = Baseball;
 			sourceTree = "<group>";
@@ -307,6 +329,8 @@
 		1657F91A23AABE7000DECB40 /* BasketBall */ = {
 			isa = PBXGroup;
 			children = (
+				1657F92723ABEFA900DECB40 /* BasketBall.swift */,
+				1657F92923ABEFB700DECB40 /* BasketBallCells.swift */,
 			);
 			path = BasketBall;
 			sourceTree = "<group>";
@@ -435,6 +459,7 @@
 				1613F22C23A1AA6E00FA5056 /* string+NsattributedString.swift in Sources */,
 				1613F23923A1AA6F00FA5056 /* LBTAListHeaderController.swift in Sources */,
 				1657F90823A66EB700DECB40 /* BaseTabBarController.swift in Sources */,
+				1657F92023ABEF5E00DECB40 /* Rugby.swift in Sources */,
 				1613F26323A4F00400FA5056 /* Fonts.swift in Sources */,
 				1613F23623A1AA6E00FA5056 /* AnchoredConstraints.swift in Sources */,
 				1613F22A23A1AA6E00FA5056 /* CircularImageView.swift in Sources */,
@@ -446,15 +471,19 @@
 				1613F22B23A1AA6E00FA5056 /* UIStackView.swift in Sources */,
 				1657F90223A66E3900DECB40 /* BaseListController.swift in Sources */,
 				1613F1FD23A1AA5800FA5056 /* AppDelegate.swift in Sources */,
+				1657F92423ABEF7A00DECB40 /* Baseball.swift in Sources */,
 				1613F1FF23A1AA5800FA5056 /* SceneDelegate.swift in Sources */,
 				1657F90E23A672F100DECB40 /* Home.swift in Sources */,
+				16161C7423AFC77300A4F9C0 /* RugbyVideoCell.swift in Sources */,
 				1657F90C23A6715E00DECB40 /* Enums.swift in Sources */,
 				1657F91023A6865F00DECB40 /* gradientNavBar.swift in Sources */,
+				1657F92623ABEF8B00DECB40 /* BaseBallCells.swift in Sources */,
 				1657F91423A6CF9B00DECB40 /* BaseCell.swift in Sources */,
 				1613F24623A2E6A400FA5056 /* SignUp.swift in Sources */,
 				1613F23423A1AA6E00FA5056 /* UITextView.swift in Sources */,
 				1657F90A23A66F0900DECB40 /* BetterSnappingLayout.swift in Sources */,
 				1657F91723AABE2E00DECB40 /* Dashboard.swift in Sources */,
+				1657F92823ABEFA900DECB40 /* BasketBall.swift in Sources */,
 				1613F22E23A1AA6E00FA5056 /* UIView+Layout.swift in Sources */,
 				1613F22923A1AA6E00FA5056 /* LBTAFormController.swift in Sources */,
 				1657F91E23AAC0FB00DECB40 /* DashboardCells.swift in Sources */,
@@ -464,11 +493,14 @@
 				1613F23023A1AA6E00FA5056 /* UIButton.swift in Sources */,
 				1613F23823A1AA6F00FA5056 /* LBTAListCell.swift in Sources */,
 				1613F22D23A1AA6E00FA5056 /* IndentedTextField.swift in Sources */,
+				1657F92A23ABEFB700DECB40 /* BasketBallCells.swift in Sources */,
 				1613F23223A1AA6E00FA5056 /* UITextField+Tools.swift in Sources */,
 				1613F24823A4E3B800FA5056 /* Login.swift in Sources */,
 				1613F23723A1AA6F00FA5056 /* LBTAListController.swift in Sources */,
 				1613F20123A1AA5800FA5056 /* ContentView.swift in Sources */,
 				1613F23A23A1AA6F00FA5056 /* LBTAListHeaderFooterController.swift in Sources */,
+				16161C7223AF5E6300A4F9C0 /* CardView.swift in Sources */,
+				1657F92223ABEF6A00DECB40 /* RugbyCells.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -71,9 +71,13 @@ setupCollectionView()
          
          collectionView?.backgroundColor = UIColor.white
          
-         collectionView?.register(Dashboard.self, forCellWithReuseIdentifier: cellId)
-//         collectionView?.register(TrendingCell.self, forCellWithReuseIdentifier: trendingCellId)
-//         collectionView?.register(SubscriptionCell.self, forCellWithReuseIdentifier: subscriptionCellId)
+        collectionView?.register(Dashboard.self, forCellWithReuseIdentifier: HomeSettings.Dashboard.rawValue)
+        
+         collectionView?.register(Rugby.self, forCellWithReuseIdentifier: HomeSettings.Rugby.rawValue)
+        
+         collectionView?.register(BasketBall.self, forCellWithReuseIdentifier: HomeSettings.BasketBall.rawValue)
+        
+
         
          //content getting underneath
          collectionView?.contentInset = UIEdgeInsets(top: 50, left: 0, bottom: 0, right: 0)
@@ -117,30 +121,54 @@ setupCollectionView()
         }
 //           setTitleForIndex(index: index)
        }
-    override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
            return 6
        }
        
        override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellId, for: indexPath) as? Dashboard else{return UICollectionViewCell() }
-        
-//        switch indexPath.item    {
-//        case 0:
-//            cell.backgroundColor = .red
-//            case 1:
-//                       cell.backgroundColor = .yellow
-//            case 2:
-//                       cell.backgroundColor = .blue
-//            case 3:
-//                       cell.backgroundColor = .green
-//            case 4:
-//                       cell.backgroundColor = .yellow
-//            case 5:
-//                       cell.backgroundColor = .red
-//        default:
-//                   cell.backgroundColor = .green
-//
-//        }
+      
+        let identifier: String
+        switch indexPath.item    {
+
+        case 0:
+            identifier = HomeSettings.Dashboard.rawValue
+              guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: identifier, for: indexPath) as? Dashboard else{return UICollectionViewCell() }
+                            
+
+            return cell
+            case 1:
+                identifier = HomeSettings.Rugby.rawValue
+
+                        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: identifier, for: indexPath) as? Rugby else{return UICollectionViewCell() }
+            return cell
+
+            case 2:
+                identifier = HomeSettings.BasketBall.rawValue
+                        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: identifier, for: indexPath) as? BasketBall else{return UICollectionViewCell() }
+            return cell
+
+            case 3:
+                         identifier = "Dashboard"
+                                                guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "Dashboard", for: indexPath) as? Dashboard else{return UICollectionViewCell() }
+                                    return cell
+
+            case 4:
+                          identifier = "Dashboard"
+                                                guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "Dashboard", for: indexPath) as? Dashboard else{return UICollectionViewCell() }
+                                    return cell
+
+            case 5:
+                         identifier = "Dashboard"
+                                                guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "Dashboard", for: indexPath) as? Dashboard else{return UICollectionViewCell() }
+                                    return cell
+
+        default:
+                      identifier = "Dashboard"
+                                            guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "Dashboard", for: indexPath) as? Dashboard else{return UICollectionViewCell() }
+                                return cell
+
+
+        }
  //           let identifier: String
 //        switch
 //           if indexPath.item == 1 {
@@ -153,8 +181,7 @@ setupCollectionView()
 //
 //           let cell = collectionView.dequeueReusableCell(withReuseIdentifier: identifier, for: indexPath) as! FeedCell
            
-           return cell
-       }
+        }
     func determineGradientByIndexPath(navigationBar:UINavigationBar? = nil ,index:Int,view:UIView? = nil ){
         switch index {
         case 0:
@@ -193,9 +220,9 @@ setupCollectionView()
         view.addSubview(menuBar)
         menuBar.anchor(top: view.safeAreaLayoutGuide.topAnchor, leading: view.leadingAnchor, bottom: nil, trailing: view.trailingAnchor, padding: .init(top: 0, left: 0, bottom: 0, right: 0), size: .init(width: view.frame.width, height: 50))
       
-
-        globalTotalHeigt = topbarHeight
-        menuBar.setupShadow(opacity: 1, radius: 12, offset: .init(width: 0, height: 4), color: UIColor(red: 0, green: 0, blue: 0, alpha: 0.17) )
+        //we dont use
+        globalTotalHeigt = Int(topbarHeight)
+//        menuBar.setupShadow(opacity: 1, radius: 12, offset: .init(width: 0, height:4), color: UIColor(red: 0, green: 0, blue: 0, alpha: 0.17) )
 //           let redView = UIView()
 //           redView.backgroundColor = UIColor.rgb(red: 230, green: 32, blue: 31)
 //           view.addSubview(redView)

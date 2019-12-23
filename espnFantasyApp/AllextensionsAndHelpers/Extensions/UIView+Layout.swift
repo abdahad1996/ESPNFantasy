@@ -190,7 +190,12 @@ extension UIView {
         layer.shadowOffset = offset
         layer.shadowColor = color.cgColor
     }
-    
+     func setCorner(withRadius:CGFloat, borderWidth:CGFloat = 0, color: UIColor = .clear){
+    layer.cornerRadius =  withRadius
+        layer.borderColor = color.cgColor
+            layer.borderWidth = borderWidth
+            clipsToBounds = true
+       }
     convenience public init(backgroundColor: UIColor = .clear) {
         self.init(frame: .zero)
         self.backgroundColor = backgroundColor

@@ -60,81 +60,76 @@ class DashboardCells: BaseCell {
 //            thumbnailImageView.loadImageUsingUrlString(urlString: thumbnailImageUrl)
 //        }
 //    }
-    
-    let thumbnailImageView: UIImageView = {
-        let imageView = UIImageView()
-        imageView.image = UIImage(named: "taylor_swift_blank_space")
-        imageView.contentMode = .scaleAspectFill
-        imageView.clipsToBounds = true
-        return imageView
+    lazy var cardView1: CardView = {
+        let cv = CardView(image: #imageLiteral(resourceName: "l1 1"), mainText: "Michigan", submainText: "Leads at Halftime", percentText: "93.4%")
+        cv.backgroundColor = .white
+        let button = UIButton()
+            button.setBackgroundImage(#imageLiteral(resourceName: "Group 10"), for: .normal)
+            cv.addSubview(button)
+            button.anchor(top: cv.bottomAnchor, leading: nil, bottom: nil, trailing: nil, padding: .init(top: -10, left: 0, bottom: 0, right: 0), size: .init(width: 40, height: 40))
+            button.layer.cornerRadius = 20
+            button.layer.masksToBounds = true
+            button.centerXTo(cv.centerXAnchor)
+        return cv
     }()
-    
-    let userProfileImageView: UIImageView = {
-        let imageView = UIImageView()
-        imageView.image = UIImage(named: "taylor_swift_profile")
-        imageView.layer.cornerRadius = 22
-        imageView.layer.masksToBounds = true
-        imageView.contentMode = .scaleAspectFill
-        return imageView
+    lazy var cardView2: CardView = {
+             let cv = CardView(image: #imageLiteral(resourceName: "l5 1"), mainText: "Michigan", submainText: "Leads at Halftime", percentText: "93.4%")
+                cv.backgroundColor = .white
+            let button = UIButton()
+        button.setBackgroundImage(#imageLiteral(resourceName: "Group 7"), for: .normal)
+        cv.addSubview(button)
+        button.anchor(top: cv.bottomAnchor, leading: nil, bottom: nil, trailing: nil, padding: .init(top: -10, left: 0, bottom: 0, right: 0), size: .init(width: 40, height: 40))
+        button.layer.cornerRadius = 20
+        button.layer.masksToBounds = true
+        button.centerXTo(cv.centerXAnchor)
+ 
+                return cv
+       }()
+ lazy var textlabel: UILabel = {
+    let l = UILabel(text: "NCW (Charleston @ Presbyterian): \nWhich TEAM will be LEADING at HALFTIME?", font: AppFont.Medium().fourteen, textColor:UIColor(red: 0.004, green: 0.004, blue: 0.004, alpha: 1), textAlignment:.left, numberOfLines: 0)
+    l.lineBreakMode = .byWordWrapping
+    l.backgroundColor = .white
+         return l
+        
     }()
-    
-    let separatorView: UIView = {
-        let view = UIView()
-        view.backgroundColor = UIColor(red: 230/255, green: 230/255, blue: 230/255, alpha: 1)
-        return view
+    lazy var preview: UIButton = {
+        let b = UIButton(title: "PREVIEW", titleColor: UIColor(red: 0.125, green: 0.812, blue: 0.38, alpha: 1), font: AppFont.Bold().twelve, backgroundColor: .white, target: nil, action: nil)
+        return b
     }()
-    
-    let titleLabel: UILabel = {
-        let label = UILabel()
-        label.translatesAutoresizingMaskIntoConstraints = false
-        label.text = "Taylor Swift - Blank Space"
-        label.numberOfLines = 2
-        return label
+    lazy var Discuss: UIButton = {
+        let b = UIButton(title: "DISCUSS", titleColor: UIColor(red: 0.125, green: 0.812, blue: 0.38, alpha: 1), font: AppFont.Bold().twelve, backgroundColor: .white, target: nil, action: nil)
+        return b
     }()
-    
-    let subtitleTextView: UITextView = {
-        let textView = UITextView()
-        textView.translatesAutoresizingMaskIntoConstraints = false
-        textView.text = "TaylorSwiftVEVO • 1,604,684,607 views • 2 years ago"
-        textView.textContainerInset = UIEdgeInsets(top: 0, left: -4, bottom: 0, right: 0)
-        textView.textColor = UIColor.lightGray
-        return textView
-    }()
-    
     var titleLabelHeightConstraint: NSLayoutConstraint?
     
     override func setupViews() {
-        addSubview(thumbnailImageView)
-        addSubview(separatorView)
-        addSubview(userProfileImageView)
-        addSubview(titleLabel)
-        addSubview(subtitleTextView)
-        
-        addConstraintsWithFormat("H:|-16-[v0]-16-|", views: thumbnailImageView)
-        
-        addConstraintsWithFormat("H:|-16-[v0(44)]", views: userProfileImageView)
-        
-        //vertical constraints
-        addConstraintsWithFormat("V:|-16-[v0]-8-[v1(44)]-16-[v2(1)]|", views: thumbnailImageView, userProfileImageView, separatorView)
-        
-        addConstraintsWithFormat("H:|[v0]|", views: separatorView)
-        
-        //top constraint
-        addConstraint(NSLayoutConstraint(item: titleLabel, attribute: .top, relatedBy: .equal, toItem: thumbnailImageView, attribute: .bottom, multiplier: 1, constant: 8))
-        //left constraint
-        addConstraint(NSLayoutConstraint(item: titleLabel, attribute: .left, relatedBy: .equal, toItem: userProfileImageView, attribute: .right, multiplier: 1, constant: 8))
-        //right constraint
-        addConstraint(NSLayoutConstraint(item: titleLabel, attribute: .right, relatedBy: .equal, toItem: thumbnailImageView, attribute: .right, multiplier: 1, constant: 0))
-        //height constraint
-        addConstraint(NSLayoutConstraint(item: titleLabel, attribute: .height, relatedBy: .equal, toItem: self, attribute: .height, multiplier: 0, constant: 20))
-        
-        //top constraint
-        addConstraint(NSLayoutConstraint(item: subtitleTextView, attribute: .top, relatedBy: .equal, toItem: titleLabel, attribute: .bottom, multiplier: 1, constant: 4))
-        //left constraint
-        addConstraint(NSLayoutConstraint(item: subtitleTextView, attribute: .left, relatedBy: .equal, toItem: userProfileImageView, attribute: .right, multiplier: 1, constant: 8))
-        //right constraint
-        addConstraint(NSLayoutConstraint(item: subtitleTextView, attribute: .right, relatedBy: .equal, toItem: thumbnailImageView, attribute: .right, multiplier: 1, constant: 0))
-        //height constraint
-        addConstraint(NSLayoutConstraint(item: subtitleTextView, attribute: .height, relatedBy: .equal, toItem: self, attribute: .height, multiplier: 0, constant: 30))
+        backgroundColor  =  .white
+        let h1 = hstack(cardView1.withHeight(152).withWidth(149),cardView2.withHeight(152).withWidth(149))
+//        h1.constrainHeight(152)
+        h1.distribution = .fillEqually
+        h1.spacing = 20
+         let h2 = hstack(preview,Discuss)
+        h2.distribution = .fillEqually
+        let v1 = stack(textlabel,h1).padBottom(20)
+//        v1.spacing = -5
+       let mainStack = stack(textlabel,
+              v1,
+              UIView(backgroundColor: UIColor(red: 0.863, green: 0.863, blue: 0.863, alpha: 1)).withHeight(1),
+              h2
+        ).withMargins(.init(top: 10, left: 10, bottom: 10, right: 10))
+         setupShadow(opacity: 1, radius: 12, offset: .init(width: 0, height: 4), color: UIColor(red: 0, green: 0, blue: 0, alpha: 0.17) )
+//        mainStack.backgroundColor = .white
+//        mainStack.addBackground(color: .red)
+        mainStack.spacing = 20
     }
+}
+extension UIStackView {
+
+    func addBackground(color: UIColor) {
+        let subview = UIView(frame: bounds)
+        subview.backgroundColor = color
+        subview.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+        insertSubview(subview, at: 0)
+    }
+
 }
