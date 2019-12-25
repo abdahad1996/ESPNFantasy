@@ -18,6 +18,7 @@ import UIKit
         addSubview(label)
 //        label.anchor(top: topAnchor, leading: leadingAnchor, bottom: nil, trailing: trailingAnchor, padding: .zero, size: .init(width: 0, height: 30))
         hstack(label).padTop(10).padLeft(10)
+         setupShadow(opacity: 1, radius: 14, offset: CGSize(width: 0, height: 1), color:  UIColor(red: 0, green: 0, blue: 0, alpha: 0.17))
     }
     
     required init?(coder: NSCoder) {

@@ -33,6 +33,8 @@ struct AppFont {
       let sixteen: UIFont = UIFont(name: .Regular, size: 16.0)
     let twelve: UIFont = UIFont(name: .Regular, size: 12.0)
     let fourteen: UIFont = UIFont(name: .Regular, size: 14.0)
+    let twentytwo: UIFont = UIFont(name: .Regular, size: 22.0)
+
 
     
    }

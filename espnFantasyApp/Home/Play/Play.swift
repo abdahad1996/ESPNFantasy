@@ -15,12 +15,13 @@ class PlayHeader: UICollectionReusableView {
     override init(frame: CGRect) {
         super.init(frame: frame)
         backgroundColor = .white
-        let label = UILabel(text: "Fantasy News & Analysis", font: AppFont.Bold().sixteen, textColor:  UIColor(red: 0.176, green: 0.761, blue: 0.894, alpha: 1), textAlignment: .left, numberOfLines: 1)
+        let label = UILabel(text: "More fantasy games", font: AppFont.Bold().sixteen, textColor:  UIColor(red: 0.937, green: 0.686, blue: 0.125, alpha: 1), textAlignment: .left, numberOfLines: 1)
         addSubview(label)
 //        label.anchor(top: topAnchor, leading: leadingAnchor, bottom: nil, trailing: trailingAnchor, padding: .zero, size: .init(width: 0, height: 30))
         hstack(label).padTop(10).padLeft(10)
+         setupShadow(opacity: 1, radius: 14, offset: CGSize(width: 0, height: 1), color:  UIColor(red: 0, green: 0, blue: 0, alpha: 0.17))
+        backgroundColor = .white
     }
-    
     required init?(coder: NSCoder) {
         fatalError()
     }
@@ -79,25 +80,25 @@ class Play: BaseCell, UICollectionViewDataSource, UICollectionViewDelegate, UICo
     
     override func setupViews() {
         super.setupViews()
-       let h2 = UIStackView(arrangedSubviews: [getATeambtn,createLeague,mockDraft])
-               h2.addBackground(color: MyColors.Hockey().backgroundGradient1)
-               h2.padRight(10).padLeft(10).padTop(20)
-                h2.spacing = 10
-                h2.distribution = .fillEqually
-               h2.alignment = .center
-        addSubview(h2)
-               h2.anchor(top: safeAreaLayoutGuide.topAnchor, leading: self.leadingAnchor, bottom: nil, trailing: self.trailingAnchor, padding: .init(top: 50 + 50 , left: 0, bottom: 0, right: 0), size: .init(width: 0, height: 100))
- 
+//       let h2 = UIStackView(arrangedSubviews: [getATeambtn,createLeague,mockDraft])
+//               h2.addBackground(color: MyColors.Hockey().backgroundGradient1)
+//               h2.padRight(10).padLeft(10).padTop(20)
+//                h2.spacing = 10
+//                h2.distribution = .fillEqually
+//               h2.alignment = .center
+//        addSubview(h2)
+//               h2.anchor(top: safeAreaLayoutGuide.topAnchor, leading: self.leadingAnchor, bottom: nil, trailing: self.trailingAnchor, padding: .init(top: 50 + 50 , left: 0, bottom: 0, right: 0), size: .init(width: 0, height: 100))
+//
         
 //        hstack(topMatch,UIView(),AllMatchUps)
         
 // 50 menu bar height
         addSubview(collectionView)
-        collectionView.anchor(top: safeAreaLayoutGuide.topAnchor, leading: self.leadingAnchor, bottom: self.bottomAnchor, trailing: self.trailingAnchor, padding: .init(top: 50 + 50 + 100, left: 0, bottom: 0, right: 0), size: .zero)
+        collectionView.anchor(top: safeAreaLayoutGuide.topAnchor, leading: self.leadingAnchor, bottom: self.bottomAnchor, trailing: self.trailingAnchor, padding: .init(top: 50 + 50 , left: 0, bottom: 0, right: 0), size: .zero)
 //        collectionView.fillSuperview(padding: .init(top: 0, left: 0, bottom: 0, right: 0))
         collectionView.backgroundColor = .white
-        collectionView.register(HockeyHeader.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: supplementaryViewId)
-        collectionView.register(HockeyCells.self, forCellWithReuseIdentifier: cellId)
+        collectionView.register(PlayHeader.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: supplementaryViewId)
+        collectionView.register(PlayCells.self, forCellWithReuseIdentifier: cellId)
     }
        func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
         let supplementaryView = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: supplementaryViewId, for: indexPath)
@@ -105,7 +106,7 @@ class Play: BaseCell, UICollectionViewDataSource, UICollectionViewDelegate, UICo
         return supplementaryView
     }
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
-        return .init(width: frame.width, height: 30)
+        return .init(width: frame.width, height: 50)
     }
     func numberOfSections(in collectionView: UICollectionView) -> Int {
         return 1
@@ -116,7 +117,7 @@ class Play: BaseCell, UICollectionViewDataSource, UICollectionViewDelegate, UICo
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellId, for: indexPath) as! HockeyCells
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellId, for: indexPath) as! PlayCells
  
 //        cell.video = videos?[indexPath.item]
         
@@ -129,7 +130,7 @@ class Play: BaseCell, UICollectionViewDataSource, UICollectionViewDelegate, UICo
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
-        return 0
+        return 10
     }
     
  

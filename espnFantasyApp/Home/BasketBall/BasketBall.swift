@@ -23,6 +23,7 @@ import UIKit
     override init(frame: CGRect) {
         super.init(frame: frame)
         backgroundColor = .white
+         setupShadow(opacity: 1, radius: 14, offset: CGSize(width: 0, height: 1), color:  UIColor(red: 0, green: 0, blue: 0, alpha: 0.17))
     }
     
     required init?(coder: NSCoder) {

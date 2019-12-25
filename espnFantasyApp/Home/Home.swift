@@ -45,7 +45,13 @@ class Home:BaseListController,UICollectionViewDelegateFlowLayout{
         print("tapped")
     }
     @objc func handleSettingTapped(){
-           print("setting")
+        let vc = SettingVC()
+       let nav = UINavigationController(rootViewController: vc)
+       
+//        self.navigationController?.pushViewController(vc, animated: true)
+        nav.modalPresentationStyle = .fullScreen
+        self.navigationController?.present(nav, animated: true, completion: nil)
+        
        }
     
     override func viewDidLoad() {
@@ -78,7 +84,7 @@ setupCollectionView()
          collectionView?.register(BasketBall.self, forCellWithReuseIdentifier: HomeSettings.BasketBall.rawValue)
         collectionView?.register(Hockey.self, forCellWithReuseIdentifier: HomeSettings.Hockey.rawValue)
          collectionView?.register(Baseball.self, forCellWithReuseIdentifier: HomeSettings.Baseball.rawValue)
-        
+          collectionView?.register(Play.self, forCellWithReuseIdentifier:         HomeSettings.Play.rawValue)
 
         
          //content getting underneath
@@ -160,28 +166,19 @@ setupCollectionView()
                                     return cell
 
             case 5:
-                         identifier = "Dashboard"
-                                                guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "Dashboard", for: indexPath) as? Dashboard else{return UICollectionViewCell() }
+                         identifier = HomeSettings.Play.rawValue
+                                                guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: identifier, for: indexPath) as? Play else{return UICollectionViewCell() }
                                     return cell
 
         default:
+             
                       identifier = "Dashboard"
                                             guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "Dashboard", for: indexPath) as? Dashboard else{return UICollectionViewCell() }
                                 return cell
 
 
         }
- //           let identifier: String
-//        switch
-//           if indexPath.item == 1 {
-//               identifier = trendingCellId
-//           } else if indexPath.item == 2 {
-//               identifier = subscriptionCellId
-//           } else {
-//               identifier = cellId
-//           }
-//
-//           let cell = collectionView.dequeueReusableCell(withReuseIdentifier: identifier, for: indexPath) as! FeedCell
+  
            
         }
     func determineGradientByIndexPath(navigationBar:UINavigationBar? = nil ,index:Int,view:UIView? = nil ){

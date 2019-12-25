@@ -8,79 +8,49 @@
 
 import Foundation
 import UIKit
-
 class PlayCells: BaseCell {
- 
-    lazy var logo: AspectFitImageView = {
-        let imageView = AspectFitImageView(image: #imageLiteral(resourceName: "ball"), cornerRadius: 20)
-       
-        return  imageView
-    }()
-    lazy var logoFantasy: AspectFitImageView = {
-           let imageView = AspectFitImageView(image: #imageLiteral(resourceName: "Fantasy"), cornerRadius: 0)
-          
-           return  imageView
-       }()
-    lazy var logoBasketBall: AspectFitImageView = {
-           let imageView = AspectFitImageView(image: #imageLiteral(resourceName: "Basketballlogo"), cornerRadius: 0)
-          
-           return  imageView
-       }()
-   
-    lazy var signUpTodayLabel: UILabel = {
-        let l = UILabel(text: nil, font: AppFont.Bold().thirtyfour, textColor: UIColor(red: 1, green: 1, blue: 1, alpha: 1), textAlignment: .left, numberOfLines: 0)
-        l.attributedText = NSMutableAttributedString(string: "SIGNUP \nTODAY", attributes: [NSAttributedString.Key.kern: 0.51])
-        return l
-    }()
-    lazy var inviteLabel: UILabel = {
-        let l = UILabel(text: "Create or join a free Fantasy Basketball League\nwith Standard or custom rules.", font: AppFont.Regular().fourteen, textColor: UIColor(red: 1, green: 1, blue: 1, alpha: 1), textAlignment: .left, numberOfLines: 0)
+    
+ lazy var textlabel: UILabel = {
+    let l = UILabel(text: "Fantasy Soccer", font: AppFont.Medium().sixteen, textColor:UIColor(red: 0.004, green: 0.004, blue: 0.004, alpha: 1), textAlignment:.left , numberOfLines: 1)
+ l.lineBreakMode = .byWordWrapping
+ l.backgroundColor = .white
+      return l
+     
+ }()
+    lazy var textlabel2: UILabel = {
+       let l = UILabel(text: "Pick the top Champions league players\neach week. Play the season against \nfamily and friends.", font: AppFont.Medium().fourteen, textColor:UIColor(red: 0.471, green: 0.471, blue: 0.471, alpha: 1), textAlignment:.left, numberOfLines: 0)
+        l.lineBreakMode = .byWordWrapping
+     l.backgroundColor = .white
+         return l
         
-        return l
     }()
-    lazy var getATeambtn : UIButton = {
-        let b = UIButton(title: "Get a Team", titleColor: UIColor(red: 0.906, green: 0.216, blue: 0.196, alpha: 1), font: AppFont.Bold().twelve, backgroundColor: .white, target: nil, action: nil)
-        b.withWidth(60)
-              b.withHeight(40)
-              b.buttonBorder(withRadius:20 , width: 2,color: .white)
-        return b
+   lazy var image: AspectFitImageView = {
+             let imageView = AspectFitImageView(image: #imageLiteral(resourceName: "football 1"), cornerRadius: 0)
+//    imageView.constrainHeight(100)
+//    imageView.constrainWidth(100)
+             return  imageView
+         }()
+    
+    lazy var letsPlay: UIButton = {
+         let letsPlay = UIButton(title: "Tap to Play", titleColor: UIColor(red: 1, green: 1, blue: 1, alpha: 1), font: AppFont.Bold().twelve, backgroundColor:UIColor(red: 0.945, green: 0.71, blue: 0.118, alpha: 1), target: self, action: nil)
+        return letsPlay
     }()
-    lazy var createLeague : UIButton = {
-           let b = UIButton(title: "Create League", titleColor: UIColor(red: 0.906, green: 0.216, blue: 0.196, alpha: 1), font: AppFont.Bold().twelve, backgroundColor: .white, target: nil, action: nil)
-        b.withWidth(60)
-              b.withHeight(40)
-              b.buttonBorder(withRadius:20 , width: 2,color: .white)
-           return b
-       }()
-    lazy var mockDraft : UIButton = {
-           let b = UIButton(title: "Mock Draft", titleColor: UIColor(red: 0.906, green: 0.216, blue: 0.196, alpha: 1), font: AppFont.Bold().twelve, backgroundColor: .white, target: nil, action: nil)
-        b.withWidth(60)
-        b.withHeight(40)
-        b.buttonBorder(withRadius:20 , width: 2,color: .white)
-           return b
-       }()
+     
+    
+    var titleLabelHeightConstraint: NSLayoutConstraint?
+    
     override func setupViews() {
-        setGradientBackground(colorOne: MyColors.BasketBall().backgroundGradient1, colorTwo: MyColors.BasketBall().backgroundGradient2)
-        let vSubStack = stack(logoFantasy.withHeight(20),logoBasketBall.withHeight(20))
-        vSubStack.spacing = -5
-        
-        let v1 = stack(logo.withWidth(50).withHeight(50),vSubStack)
-        v1.distribution = .fillEqually
-        let h1 = hstack(UIView(backgroundColor: .yellow),v1).padRight(-20)
-        h1.distribution = .fillEqually
-        h1.alignment = .center
-//        let h2 = hstack(UIView(backgroundColor: .green),logoFantasy.withWidth(40).withHeight(40)).padRight(20)
-//        let h1 = hstack(UIView(backgroundColor: .green),logoBasketBall.withWidth(40).withHeight(40)).padRight(20)
-        let h2 = hstack(getATeambtn,createLeague,mockDraft)
-        h2.spacing = 10
-        h2.distribution = .fillEqually
-        let v2 = stack(signUpTodayLabel,inviteLabel,UIView())
-         v2.spacing = 10
-        v2.distribution = .fill
-        let v3 = stack(v2,h2)
-        
-        let mainContainer = stack(h1.withHeight(100),v3).padLeft(10).padRight(10).padTop(10).padBottom(10)
-        mainContainer.spacing = -10
-        
+        backgroundColor = .white
+        letsPlay.withHeight(20)
+        let v1 = stack(UIView().withHeight(10),textlabel,textlabel2,UIView()).padTop(20)
+        let v2 = stack(letsPlay,UIView()).padTop(10)
+
+        let mainStack = hstack(image,v1,v2).padLeft(10)
+        mainStack.spacing = 10
        
+        
+        setupShadow(opacity: 1, radius: 14, offset: CGSize(width: 0, height: 1), color:  UIColor(red: 0, green: 0, blue: 0, alpha: 0.17))
     }
 }
+
+ 

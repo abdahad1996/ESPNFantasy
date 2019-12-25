@@ -65,6 +65,10 @@ struct MyColors {
         
     }
     
+    struct settings {
+       let primary = UIColor(red: 0.133, green: 0.133, blue: 0.133, alpha: 1)
+       let secondary =   UIColor(red: 0.471, green: 0.471, blue: 0.471, alpha: 1)
+    }
     
     
 }

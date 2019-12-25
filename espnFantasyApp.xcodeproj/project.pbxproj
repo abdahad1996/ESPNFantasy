@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		160D9C4823B3B498004BE0DC /* SettingVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 160D9C4723B3B498004BE0DC /* SettingVC.swift */; };
 		1613F1FD23A1AA5800FA5056 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1613F1FC23A1AA5800FA5056 /* AppDelegate.swift */; };
 		1613F1FF23A1AA5800FA5056 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1613F1FE23A1AA5800FA5056 /* SceneDelegate.swift */; };
 		1613F20123A1AA5800FA5056 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1613F20023A1AA5800FA5056 /* ContentView.swift */; };
@@ -74,6 +75,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		160D9C4723B3B498004BE0DC /* SettingVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingVC.swift; sourceTree = "<group>"; };
 		1613F1F923A1AA5800FA5056 /* espnFantasyApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = espnFantasyApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1613F1FC23A1AA5800FA5056 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1613F1FE23A1AA5800FA5056 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -153,6 +155,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		160D9C4623B37791004BE0DC /* Setting */ = {
+			isa = PBXGroup;
+			children = (
+				160D9C4723B3B498004BE0DC /* SettingVC.swift */,
+			);
+			path = Setting;
+			sourceTree = "<group>";
+		};
 		1613F1F023A1AA5800FA5056 = {
 			isa = PBXGroup;
 			children = (
@@ -364,6 +374,7 @@
 		16A6301823A6344200F0FAF0 /* Home */ = {
 			isa = PBXGroup;
 			children = (
+				160D9C4623B37791004BE0DC /* Setting */,
 				1657F90D23A672F100DECB40 /* Home.swift */,
 				1657F91C23AABE8400DECB40 /* Hockey */,
 				1657F91B23AABE7B00DECB40 /* Play */,
@@ -485,6 +496,7 @@
 				1657F90223A66E3900DECB40 /* BaseListController.swift in Sources */,
 				1613F1FD23A1AA5800FA5056 /* AppDelegate.swift in Sources */,
 				1657F92423ABEF7A00DECB40 /* Baseball.swift in Sources */,
+				160D9C4823B3B498004BE0DC /* SettingVC.swift in Sources */,
 				1613F1FF23A1AA5800FA5056 /* SceneDelegate.swift in Sources */,
 				1657F90E23A672F100DECB40 /* Home.swift in Sources */,
 				16161C7423AFC77300A4F9C0 /* RugbyVideoCell.swift in Sources */,
