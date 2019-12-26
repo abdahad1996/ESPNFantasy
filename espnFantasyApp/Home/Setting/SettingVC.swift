@@ -83,7 +83,9 @@ class SettingVC:BaseListController,UICollectionViewDelegateFlowLayout{
         return .init(width: view.frame.width, height: 50)
     }
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForFooterInSection section: Int) -> CGSize {
-        if data.count == 3{
+        
+       
+        if  section == 2{
             return .init(width: view.frame.width, height: 50)
         }
         return .zero
@@ -106,13 +108,18 @@ class SettingVC:BaseListController,UICollectionViewDelegateFlowLayout{
         return cell
         
     }
-    override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        print(indexPath)
-    }
+//    override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+//        print(indexPath)
+//
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         return .init(width: view.frame.width, height: 50)
     }
-   
+    override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        if indexPath.section == 2 && indexPath.item == 0 {
+            let vc = accountInformation()
+            self.navigationController?.pushViewController(vc, animated: true)
+        }
+    }
     override func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
         switch kind {
 
@@ -141,8 +148,7 @@ class SettingVC:BaseListController,UICollectionViewDelegateFlowLayout{
 class settingFooter: UICollectionReusableView {
      
    lazy var logout:UIButton = {
-           let login = UIButton(title: "LogOut", titleColor:UIColor(red: 1, green: 1, blue: 1, alpha: 1), font:AppFont.Bold().sixteen, backgroundColor: .white, target: self, action: #selector(handleLogout))
-           
+    let login = UIButton(title: "LogOut", titleColor:UIColor(red: 1, green: 1, blue: 1, alpha: 1), font:AppFont.Bold().sixteen, backgroundColor:  UIColor(red: 0.967, green: 0.31, blue: 0.31, alpha: 1), target: self, action: #selector(handleLogout))
           
            return login
        }()
@@ -153,12 +159,16 @@ class settingFooter: UICollectionReusableView {
     override init(frame: CGRect) {
             super.init(frame: frame)
             backgroundColor = .white
-             logout.setGradientBackground(colorOne: UIColor(red: 0.967, green: 0.31, blue: 0.31, alpha: 1), colorTwo:  UIColor(red: 0.738, green: 0.098, blue: 0.098, alpha: 1))
+            
+//                let login = UIButton()
+//        login.titleColor(for: UIColor(red: 1, green: 1, blue: 1, alpha: 1))
         logout.setGradientBackground(colorOne: UIColor(red: 0.967, green: 0.31, blue: 0.31, alpha: 1), colorTwo:  UIColor(red: 0.738, green: 0.098, blue: 0.098, alpha: 1))
                 logout.buttonBorder(withRadius: 20, width: 0)
         logout.withHeight(40)
-           let main =  stack(logout)
-        main.alignment = .center
+        logout.withWidth(80)
+           let main =  hstack(UIView(),logout,UIView())
+//        main.alignment = .center
+        main.distribution = .fillEqually
         
         }
         required init?(coder: NSCoder) {

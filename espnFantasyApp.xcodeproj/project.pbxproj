@@ -72,6 +72,8 @@
 		1657F92623ABEF8B00DECB40 /* BaseBallCells.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1657F92523ABEF8B00DECB40 /* BaseBallCells.swift */; };
 		1657F92823ABEFA900DECB40 /* BasketBall.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1657F92723ABEFA900DECB40 /* BasketBall.swift */; };
 		1657F92A23ABEFB700DECB40 /* BasketBallCells.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1657F92923ABEFB700DECB40 /* BasketBallCells.swift */; };
+		F86261D323B493F100B5C595 /* accountInformation.swift in Sources */ = {isa = PBXBuildFile; fileRef = F86261D223B493F100B5C595 /* accountInformation.swift */; };
+		F86261D523B4A89700B5C595 /* FantasySubscription.swift in Sources */ = {isa = PBXBuildFile; fileRef = F86261D423B4A89700B5C595 /* FantasySubscription.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -142,6 +144,8 @@
 		1657F92523ABEF8B00DECB40 /* BaseBallCells.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseBallCells.swift; sourceTree = "<group>"; };
 		1657F92723ABEFA900DECB40 /* BasketBall.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasketBall.swift; sourceTree = "<group>"; };
 		1657F92923ABEFB700DECB40 /* BasketBallCells.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasketBallCells.swift; sourceTree = "<group>"; };
+		F86261D223B493F100B5C595 /* accountInformation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = accountInformation.swift; sourceTree = "<group>"; };
+		F86261D423B4A89700B5C595 /* FantasySubscription.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FantasySubscription.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -159,6 +163,8 @@
 			isa = PBXGroup;
 			children = (
 				160D9C4723B3B498004BE0DC /* SettingVC.swift */,
+				F86261D223B493F100B5C595 /* accountInformation.swift */,
+				F86261D423B4A89700B5C595 /* FantasySubscription.swift */,
 			);
 			path = Setting;
 			sourceTree = "<group>";
@@ -479,6 +485,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F86261D323B493F100B5C595 /* accountInformation.swift in Sources */,
 				1613F22C23A1AA6E00FA5056 /* string+NsattributedString.swift in Sources */,
 				1613F23923A1AA6F00FA5056 /* LBTAListHeaderController.swift in Sources */,
 				1657F90823A66EB700DECB40 /* BaseTabBarController.swift in Sources */,
@@ -505,6 +512,7 @@
 				1657F92623ABEF8B00DECB40 /* BaseBallCells.swift in Sources */,
 				1657F91423A6CF9B00DECB40 /* BaseCell.swift in Sources */,
 				16161C7C23B1687600A4F9C0 /* PlayCell.swift in Sources */,
+				F86261D523B4A89700B5C595 /* FantasySubscription.swift in Sources */,
 				1613F24623A2E6A400FA5056 /* SignUp.swift in Sources */,
 				16161C7623B1278900A4F9C0 /* Hockey.swift in Sources */,
 				1613F23423A1AA6E00FA5056 /* UITextView.swift in Sources */,
