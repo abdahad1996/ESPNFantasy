@@ -12,9 +12,16 @@
 import UIKit
 
  
-
+protocol tappable {
+    func tapGetTeam()
+    func createLeague()
+    func makeMock()
+    
+}
 class BasketBallCells: BaseCell {
- 
+    var delegate:tappable?
+    private let notificationCenter = NotificationCenter.default
+
     lazy var logo: AspectFitImageView = {
         let imageView = AspectFitImageView(image: #imageLiteral(resourceName: "ball"), cornerRadius: 20)
        
@@ -42,26 +49,42 @@ class BasketBallCells: BaseCell {
         return l
     }()
     lazy var getATeambtn : UIButton = {
-        let b = UIButton(title: "Get a Team", titleColor: UIColor(red: 0.906, green: 0.216, blue: 0.196, alpha: 1), font: AppFont.Bold().twelve, backgroundColor: .white, target: nil, action: nil)
+        let b = UIButton(title: "Get a Team", titleColor: UIColor(red: 0.906, green: 0.216, blue: 0.196, alpha: 1), font: AppFont.Bold().twelve, backgroundColor: .white, target: self, action:  #selector(handleGetTeam))
         b.withWidth(60)
               b.withHeight(40)
               b.buttonBorder(withRadius:20 , width: 2,color: .white)
         return b
     }()
+    @objc func handleGetTeam(){
+        delegate?.tapGetTeam()
+       }
     lazy var createLeague : UIButton = {
-           let b = UIButton(title: "Create League", titleColor: UIColor(red: 0.906, green: 0.216, blue: 0.196, alpha: 1), font: AppFont.Bold().twelve, backgroundColor: .white, target: nil, action: nil)
+           let b = UIButton(title: "Create League", titleColor: UIColor(red: 0.906, green: 0.216, blue: 0.196, alpha: 1), font: AppFont.Bold().twelve, backgroundColor: .white, target: self, action: #selector(handlecreateLeague))
         b.withWidth(60)
               b.withHeight(40)
               b.buttonBorder(withRadius:20 , width: 2,color: .white)
            return b
        }()
+    @objc func handlecreateLeague(){
+        let loginResponse = ["userInfo": ["userID": 6, "userName": "John"]]
+        print("asdgasdagsd")
+        notificationCenter
+            .post(name: .createLeague,
+                      object: loginResponse)
+        delegate?.createLeague()
+        
+    }
+    
     lazy var mockDraft : UIButton = {
-           let b = UIButton(title: "Mock Draft", titleColor: UIColor(red: 0.906, green: 0.216, blue: 0.196, alpha: 1), font: AppFont.Bold().twelve, backgroundColor: .white, target: nil, action: nil)
+           let b = UIButton(title: "Mock Draft", titleColor: UIColor(red: 0.906, green: 0.216, blue: 0.196, alpha: 1), font: AppFont.Bold().twelve, backgroundColor: .white, target: self, action: #selector(handlemockDraft))
         b.withWidth(60)
         b.withHeight(40)
         b.buttonBorder(withRadius:20 , width: 2,color: .white)
            return b
        }()
+    @objc func handlemockDraft(){
+        delegate?.makeMock()
+    }
     override func setupViews() {
         setGradientBackground(colorOne: MyColors.BasketBall().backgroundGradient1, colorTwo: MyColors.BasketBall().backgroundGradient2)
         let vSubStack = stack(logoFantasy.withHeight(20),logoBasketBall.withHeight(20))

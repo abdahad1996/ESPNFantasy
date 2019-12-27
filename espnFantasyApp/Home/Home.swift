@@ -22,6 +22,7 @@ import UIKit
 class Home:BaseListController,UICollectionViewDelegateFlowLayout{
     //Mark:Views
     let cellId = "cellId"
+    private let notificationCenter = NotificationCenter.default
 
     let appLogoImageView = UIImageView(image: #imageLiteral(resourceName: "antasy"), contentMode: .scaleAspectFit)
     lazy var iconButton: UIButton = {
@@ -60,14 +61,48 @@ class Home:BaseListController,UICollectionViewDelegateFlowLayout{
         collectionView.backgroundColor = .white
 //        collectionView.translatesAutoresizingMaskIntoConstraints = false
 //        collectionView.topAnchor.constraint(equalToSystemSpacingBelow: view.topAnchor, multiplier: 1).isActive = true
-        
         setupMenuBar()
         setUpNavBar()
 setupCollectionView()
+        
     }
+   //MARK : - add Notification
+    func addObserver(){
+        notificationCenter
+                         .addObserver(self,
+                          selector:#selector(createLeague(_:)),
+                          name: .createLeague,
+                          object: nil)
+    }
+     @objc func createLeague(_ notification: Notification) {
+           print(notification.object as? [String: Any] ?? [:])
+        let vc = create_league()
+        let nav = UINavigationController(rootViewController: vc)
+        nav.modalPresentationStyle = .fullScreen
+        nav.modalTransitionStyle = .crossDissolve
+        self.navigationController?.present(nav, animated: true, completion: nil)
+    }
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(true)
+        addObserver()
+
+    }
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(true)
+        removeNotification()
+
+    }
+
+     //MARK : - Remove Notification
+       deinit {
+             removeNotification()
+       }
     
-     
-     
+func removeNotification(){
+               notificationCenter.removeObserver(self,
+                            name: .createLeague ,
+                            object: nil)
+}
      func setupCollectionView() {
         //collectionview is horizontal so when we swipe we get correct index for menubars horizontal bar to go to
          if let flowLayout = collectionView?.collectionViewLayout as? UICollectionViewFlowLayout {
@@ -152,7 +187,8 @@ setupCollectionView()
 
             case 2:
                 identifier = HomeSettings.BasketBall.rawValue
-                        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: identifier, for: indexPath) as? BasketBall else{return UICollectionViewCell() }
+                        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: identifier, for: indexPath) as? BasketBall
+                             else{return UICollectionViewCell() }
             return cell
 
             case 3:
@@ -271,7 +307,22 @@ struct home:PreviewProvider{
        
     }
 }
-
+extension Home:tappable{
+    func tapGetTeam() {
+        
+    }
+    
+    func createLeague() {
+        
+        
+    }
+    
+    func makeMock() {
+        
+    }
+    
+    
+}
 extension UIView {
     func addConstraintsWithFormat(_ format: String, views: UIView...) {
         var viewsDictionary = [String: UIView]()
