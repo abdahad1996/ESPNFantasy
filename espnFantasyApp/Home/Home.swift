@@ -36,6 +36,7 @@ class Home:BaseListController,UICollectionViewDelegateFlowLayout{
     }()
     lazy var menuBar: segmentedMenuBar = {
         let mb = segmentedMenuBar()
+        
 //        mb.homeController = self
         mb.delegate = self
         return mb
@@ -73,7 +74,24 @@ setupCollectionView()
                           selector:#selector(createLeague(_:)),
                           name: .createLeague,
                           object: nil)
+        notificationCenter
+        .addObserver(self,
+         selector:#selector(mockDraft(_:)),
+         name: .mockDraft,
+         object: nil)
     }
+    @objc func mockDraft(_ notification: Notification) {
+ print(notification.object as? [String: Any] ?? [:])
+        
+        
+        let vc = Mock_Draft()
+           
+        let nav =
+UINavigationController(rootViewController: vc)
+           nav.modalPresentationStyle = .fullScreen
+           nav.modalTransitionStyle = .crossDissolve
+           self.navigationController?.present(nav, animated: true, completion: nil)
+       }
      @objc func createLeague(_ notification: Notification) {
            print(notification.object as? [String: Any] ?? [:])
         let vc = create_league()
@@ -87,16 +105,15 @@ setupCollectionView()
         addObserver()
 
     }
+     //MARK : - Remove Notification
     override func viewDidDisappear(_ animated: Bool) {
         super.viewDidDisappear(true)
         removeNotification()
 
     }
 
-     //MARK : - Remove Notification
-       deinit {
-             removeNotification()
-       }
+    
+       
     
 func removeNotification(){
                notificationCenter.removeObserver(self,
@@ -138,6 +155,7 @@ func removeNotification(){
                let lessWidth: CGFloat = 30 + 20 + 120 + 35
                let width = (view.frame.width - lessWidth)
          titleView.hstack(appLogoImageView.withWidth(120), iconButton.withWidth(30).withHeight(30), UIView().withWidth(width), settingButton.withWidth(20), spacing: 5).padBottom(8)
+        
         if let navigationBar = self.navigationController?.navigationBar  {
              determineGradientByIndexPath(navigationBar: navigationBar, index: 0)
 
@@ -149,6 +167,8 @@ func removeNotification(){
     override func scrollViewDidScroll(_ scrollView: UIScrollView) {
 //          for moving horizontal bar
         menuBar.horizontalBarLeftAnchorConstraint?.constant = scrollView.contentOffset.x / 6
+        
+        print(scrollView.contentOffset.x/6)
        }
        //indexpath is calcialted when we swipe and when n drag is finishd we divide by frame width to get index and den we move menybar accodingly
        override func scrollViewWillEndDragging(_ scrollView: UIScrollView, withVelocity velocity: CGPoint, targetContentOffset: UnsafeMutablePointer<CGPoint>) {

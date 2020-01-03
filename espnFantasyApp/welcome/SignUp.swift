@@ -43,6 +43,7 @@ class SignUp:LBTAFormController{
         username.layer.backgroundColor = UIColor(red: 1, green: 1, blue: 1, alpha: 1).cgColor
         username.layer.borderWidth = 1
         username.layer.borderColor = UIColor(red: 0.867, green: 0.867, blue: 0.867, alpha: 1).cgColor
+         username.isSecureTextEntry = true
         return username
     }()
     lazy var Signup:UIButton = {
@@ -69,7 +70,11 @@ class SignUp:LBTAFormController{
         setUpUi()
     }
      override func viewDidLayoutSubviews() {
-           Signup.setGradientBackground(colorOne: MyColors.greenGradient1, colorTwo: MyColors.greenGradient2)
+        
+        super.viewDidLayoutSubviews()
+        
+        
+        ;Signup.setGradientBackground(colorOne: MyColors.greenGradient1, colorTwo: MyColors.greenGradient2)
         Signup.withHeight(40)
         Signup.buttonBorder(withRadius: 20, width: 0)
     //        login.buttonBorder(withRadius: 15, width: 30, color: .black)

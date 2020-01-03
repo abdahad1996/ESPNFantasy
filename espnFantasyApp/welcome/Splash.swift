@@ -107,6 +107,12 @@ class Splash:LBTAFormController{
             
          
     }
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
+    // Hide the Navigation Bar
+            self.navigationController?.setNavigationBarHidden(true, animated: true)
+        }
+    
     func checkSession(){
 //        if let windowScene = scene as? UIWindowScene {
 //                    let window = UIWindow(windowScene: windowScene)

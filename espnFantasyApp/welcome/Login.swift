@@ -28,11 +28,15 @@ class Login: LBTAFormController {
         username.layer.borderColor = UIColor(red: 0.867, green: 0.867, blue: 0.867, alpha: 1).cgColor
         return username
     }()
-    lazy var passwordTF: IndentedTextField = {
+    
+    lazy var passwordTF: UITextField = {
         let passwordTF = IndentedTextField(placeholder:  "Enter Your Password", padding: 26, cornerRadius: 30, backgroundColor: .white)
         passwordTF.font = AppFont.Regular().twelve
         passwordTF.constrainHeight(60)
-        passwordTF.layer.backgroundColor = UIColor(red: 1, green: 1, blue: 1, alpha: 1).cgColor
+        passwordTF.isSecureTextEntry = true 
+//        passwordTF.text = "SDsssdsd"
+//        passwordTF.textColor =
+//        passwordTF.layer.backgroundColor = UIColor(red: 1, green: 1, blue: 1, alpha: 1).cgColor
         passwordTF.layer.borderWidth = 1
         passwordTF.layer.borderColor = UIColor(red: 0.867, green: 0.867, blue: 0.867, alpha: 1).cgColor
         return passwordTF
@@ -57,6 +61,8 @@ class Login: LBTAFormController {
            let window = self.view.window
          
          window?.rootViewController = CustomNavigationController(rootViewController: Home())
+        
+//         window?.rootViewController = CustomNavigationController(rootViewController: leagueInfoContainer())
         }
     @objc func goToSignUpTapped(){
         print("hellll")
@@ -75,7 +81,9 @@ class Login: LBTAFormController {
 //            self.navigationController?.setNavigationBarHidden(false, animated: false)
 //        }
     override func viewDidLayoutSubviews() {
-       login.setGradientBackground(colorOne: MyColors.greenGradient1, colorTwo: MyColors.greenGradient2)
+        super.viewDidLayoutSubviews()
+        
+        login.setGradientBackground(colorOne: MyColors.greenGradient1, colorTwo: MyColors.greenGradient2)
         login.withHeight(40)
         login.buttonBorder(withRadius: 20, width: 0)
  

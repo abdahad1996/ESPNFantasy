@@ -83,7 +83,12 @@ class BasketBallCells: BaseCell {
            return b
        }()
     @objc func handlemockDraft(){
-        delegate?.makeMock()
+        let loginResponse = ["userInfo": ["userID": 6, "userName": "John"]]
+               print("asdgasdagsd")
+               notificationCenter
+                .post(name: .mockDraft,
+                             object: loginResponse)
+               delegate?.createLeague()
     }
     override func setupViews() {
         setGradientBackground(colorOne: MyColors.BasketBall().backgroundGradient1, colorTwo: MyColors.BasketBall().backgroundGradient2)

@@ -8,6 +8,7 @@
 
 import Foundation
 import UIKit
+
 protocol scroll {
     func scrollToMenuIndex(menuIndex: Int)
 }
@@ -146,6 +147,7 @@ class segmentedMenuCell: BaseCell {
     var index :Int?
     let imageView = UIImageView(image: #imageLiteral(resourceName: "splash"), contentMode: .scaleAspectFit)
     override func setupViews() {
+        
        let stack =  hstack(UIView(),imageView.withWidth(20).withHeight(20),UIView())
         stack.alignment = .fill
         stack.distribution = .fillEqually
@@ -205,14 +207,5 @@ class segmentedMenuCell: BaseCell {
         }
     }
     
-//    override func setupViews() {
-//        super.setupViews()
-//        
-//        addSubview(imageView)
-//        addConstraintsWithFormat("H:[v0(28)]", views: imageView)
-//        addConstraintsWithFormat("V:[v0(28)]", views: imageView)
-//        
-//        addConstraint(NSLayoutConstraint(item: imageView, attribute: .centerX, relatedBy: .equal, toItem: self, attribute: .centerX, multiplier: 1, constant: 0))
-//        addConstraint(NSLayoutConstraint(item: imageView, attribute: .centerY, relatedBy: .equal, toItem: self, attribute: .centerY, multiplier: 1, constant: 0))
-//    }
+
 }

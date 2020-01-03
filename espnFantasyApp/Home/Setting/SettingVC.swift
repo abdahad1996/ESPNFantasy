@@ -14,11 +14,12 @@ struct list {
 struct listData{
     let first:String
     
-
 }
+ 
 import UIKit
 class SettingVC:BaseListController,UICollectionViewDelegateFlowLayout{
     var data = [
+        
         list(section: "Subscription & Support", data: [listData(first: "Manager TV Provider"),listData(first:"Fantasy Subscription"), listData(first:"Fantasy Support")]),
     
         list(section: "Help Center", data: [listData(first: "Get Help"),listData(first:"Send Feedback" )]),

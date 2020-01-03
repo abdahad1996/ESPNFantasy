@@ -15,6 +15,7 @@ open class IndentedTextField: UITextField {
         self.padding = padding
         super.init(frame: .zero)
         self.placeholder = placeholder
+        self.placeholder?.AddattributeText().textColor(.red)
         layer.cornerRadius = cornerRadius
         self.backgroundColor = backgroundColor
         self.keyboardType = keyboardType

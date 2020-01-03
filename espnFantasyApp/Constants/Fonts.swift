@@ -43,6 +43,7 @@ struct AppFont {
    }
     struct Bold {
         let twelve: UIFont = UIFont(name: .Bold, size: 12.0)
+        let fourteen: UIFont = UIFont(name: .Bold, size: 14.0)
 
        let sixteen: UIFont = UIFont(name: .Bold, size: 16.0)
         let twenty: UIFont = UIFont(name: .Bold, size: 20.0)
