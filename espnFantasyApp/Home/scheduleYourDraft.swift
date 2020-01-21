@@ -262,8 +262,8 @@ setUpView()
         }
     @objc func tapOnBack(){
 //            self.navigationController?.dismiss(animated: true, completion: nil)
-        dismiss(animated: true, completion: nil)
-    //        self.navigationController?.popViewController(animated: true)
+//        dismiss(animated: true, completion: nil)
+            self.navigationController?.popViewController(animated: true)
         }
 }
 

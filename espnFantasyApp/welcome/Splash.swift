@@ -76,7 +76,7 @@ class Splash:LBTAFormController{
   view.backgroundColor = #colorLiteral(red: 0.9486700892, green: 0.9493889213, blue: 0.9487814307, alpha: 1)
   
   let imageView = UIImageView(image: #imageLiteral(resourceName: "splash"), contentMode: .scaleAspectFit)
-  imageView.constrainHeight(300)
+  imageView.constrainHeight(200)
         let progress = UIProgressView(progressViewStyle: .bar)
         progress.constrainHeight(10)
         progress.trackTintColor = MyColors.progresstrackTintColor

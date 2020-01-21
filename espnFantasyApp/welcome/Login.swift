@@ -52,6 +52,11 @@ class Login: LBTAFormController {
         btnlabel.layer.borderWidth = 0
         return btnlabel
     }()
+    lazy var signUpLater: UIButton = {
+           let btnlabel = UIButton(title: "Signup Later", titleColor: UIColor(red: 0.125, green: 0.812, blue: 0.38, alpha: 1), font: AppFont.Bold().sixteen, backgroundColor: .clear, target: self, action: #selector(laterSignUp))
+           btnlabel.layer.borderWidth = 0
+           return btnlabel
+       }()
     let fbButton = UIButton(title: "Login with Facebook", titleColor: .white, font:AppFont.Bold().sixteen, backgroundColor: UIColor(red: 0.22, green: 0.325, blue: 0.608, alpha: 1), target: self, action: #selector(handleCancel))
     let googleButton = UIButton(title: "Login with Google", titleColor: .white, font: AppFont.Bold().sixteen, backgroundColor:UIColor(red: 0.843, green: 0.286, blue: 0.216, alpha: 1), target: self, action: #selector(handleCancel))
     
@@ -60,15 +65,24 @@ class Login: LBTAFormController {
            print("hellll")
            let window = self.view.window
          
-         window?.rootViewController = CustomNavigationController(rootViewController: Home())
+//         window?.rootViewController = CustomNavigationController(rootViewController: defaultVC())
+//
+//         window?.rootViewController = CustomNavigationController(rootViewController: MyTeamContainer())
+        window?.rootViewController = CustomNavigationController(rootViewController: logoScreen())
         
-//         window?.rootViewController = CustomNavigationController(rootViewController: leagueInfoContainer())
         }
     @objc func goToSignUpTapped(){
         print("hellll")
        let vc = SignUp()
         self.navigationController?.pushViewController(vc, animated: true )
     }
+    @objc func laterSignUp(){
+           print("hellll")
+//          let vc = SignUp()
+//           self.navigationController?.pushViewController(vc, animated: true )
+         let window = self.view.window
+        window?.rootViewController = CustomNavigationController(rootViewController: Home())
+       }
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
     // Hide the Navigation Bar
@@ -177,6 +191,34 @@ class Login: LBTAFormController {
         lasthorizontalStack.distribution = .fill
 
         formContainerStackView.addArrangedSubview(lasthorizontalStack)
+        
+        //signinlster
+        let lastlabel1 = UILabel(text: "skip sign in for now?", font: AppFont.Regular().fourteen, textColor: UIColor(red: 0.471, green: 0.459, blue: 0.459, alpha: 1), textAlignment: .left, numberOfLines: 1)
+        let last = UIStackView(arrangedSubviews: [lastlabel1,signUpLater,UIView()])
+        last.alignment = .fill
+
+
+        last.axis = .horizontal
+        last.spacing = 5
+        last.padLeft(30)
+        last.padRight(30)
+
+        last.distribution = .fill
+
+        formContainerStackView.addArrangedSubview(last)
+        
+//        let lastlabel = UILabel(text: "Already have an account?", font: UIFont(name: "Roboto-Regular", size: 14), textColor: UIColor(red: 0.471, green: 0.459, blue: 0.459, alpha: 1), textAlignment: .left, numberOfLines: 1)
+//                      let lasthorizontalStack1 = UIStackView(arrangedSubviews: [lastlabel,goToLogin,UIView()])
+//                            lasthorizontalStack1.alignment = .fill
+//
+//
+//                            lasthorizontalStack1.axis = .horizontal
+//                      lasthorizontalStack1.spacing = 5
+//                      lasthorizontalStack1.padLeft(30)
+//                      lasthorizontalStack1.padRight(30)
+//
+//                      lasthorizontalStack1.distribution = .fill
+//               formContainerStackView.addArrangedSubview(lasthorizontalStack1)
     }
     
     override func viewDidLoad() {

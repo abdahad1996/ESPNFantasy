@@ -42,8 +42,9 @@ class messageContainer:BaseListController,UICollectionViewDelegateFlowLayout{
     
         return button
     }()
-    lazy var menuBar: segmentedMenuText = {
-        let mb = segmentedMenuText()
+    lazy var menuBar: segmentedMenuText2 = {
+        let mb = segmentedMenuText2()
+        
         
 //        mb.homeController = self
         mb.delegate = self
@@ -96,21 +97,21 @@ setupCollectionView()
  print(notification.object as? [String: Any] ?? [:])
         
         
-        let vc = Mock_Draft()
-           
-        let nav =
-UINavigationController(rootViewController: vc)
-           nav.modalPresentationStyle = .fullScreen
-           nav.modalTransitionStyle = .crossDissolve
-           self.navigationController?.present(nav, animated: true, completion: nil)
+//        let vc = Mock_Draft()
+//
+//        let nav =
+//UINavigationController(rootViewController: vc)
+//           nav.modalPresentationStyle = .fullScreen
+//           nav.modalTransitionStyle = .crossDissolve
+//           self.navigationController?.present(nav, animated: true, completion: nil)
        }
      @objc func createLeague(_ notification: Notification) {
-           print(notification.object as? [String: Any] ?? [:])
-        let vc = create_league()
-        let nav = UINavigationController(rootViewController: vc)
-        nav.modalPresentationStyle = .fullScreen
-        nav.modalTransitionStyle = .crossDissolve
-        self.navigationController?.present(nav, animated: true, completion: nil)
+//           print(notification.object as? [String: Any] ?? [:])
+//        let vc = create_league()
+//        let nav = UINavigationController(rootViewController: vc)
+//        nav.modalPresentationStyle = .fullScreen
+//        nav.modalTransitionStyle = .crossDissolve
+//        self.navigationController?.present(nav, animated: true, completion: nil)
     }
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(true)
@@ -209,7 +210,11 @@ func removeNotification(){
 
         case 0:
             identifier = MessageEnum.first.rawValue
-              guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: identifier, for: indexPath) as? messageCell else{return UICollectionViewCell() }
+              guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: identifier, for: indexPath) as? messageCell else{return UICollectionViewCell()
+                
+            }
+            cell.delegate = self
+
                             
 
             return cell
@@ -303,6 +308,14 @@ extension messageContainer:scroll {
         
     }
 }
+extension messageContainer:sendDataBack{
+    func send() {
+        let vc = newTopic()
+        self.navigationController?.pushViewController(vc, animated: true )
+    }
+    
+    
+}
 
 import SwiftUI
 struct message:PreviewProvider{
@@ -346,212 +359,4 @@ extension messageContainer:tappable{
 
  
 
-//
-//  editOwnersCell.swift
-//  espnFantasyApp
-//
-//  Created by prog on 12/30/19.
-//  Copyright © 2019 prog. All rights reserved.
-//
-
-import Foundation
- import UIKit
  
-class messageCell: BaseCell, UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
-    
-    lazy var collectionView: UICollectionView = {
-        let layout = UICollectionViewFlowLayout()
-        let cv = UICollectionView(frame: .zero, collectionViewLayout: layout)
-         cv.dataSource = self
-        cv.delegate = self
-        return cv
-    }()
-    lazy var topMatch: UILabel = {
-        let t = UILabel(text: "All Topics", font: AppFont.Bold().sixteen, textColor: UIColor(red: 0.471, green: 0.471, blue: 0.471, alpha: 1), textAlignment: .left, numberOfLines: 1)
-        return t
-    }()
-    lazy var AllMatchUps: UILabel = {
-        let t = UILabel(text: "New Topic", font: AppFont.Medium().sixteen, textColor: UIColor(red: 0.906, green: 0.208, blue: 0.192, alpha: 1), textAlignment: .right, numberOfLines: 1)
-           return t
-       }()
-    
-//    var videos: [Video]?
-//
-    fileprivate let  cellId = "DashboardcellId"
-    fileprivate let supplementaryViewId = "supplementaryViewId"
-
-//    func fetchVideos() {
-//        ApiService.shared.fetchVideos { (videos: [Video]) in
-//
-//            self.videos = videos
-//            self.collectionView.reloadData()
-//
-//        }
-//    }
-//    lazy var getATeambtn : UIButton = {
-//              let b = UIButton(title: "Get a Team", titleColor:   UIColor(red: 0.071, green: 0.631, blue: 0.792, alpha: 1), font: AppFont.Bold().twelve, backgroundColor: .white, target: nil, action: nil)
-//           b.withHeight(40)
-//                     b.buttonBorder(withRadius:20 , width: 2,color: .white)
-//              return b
-//          }()
-//          lazy var createLeague : UIButton = {
-//                 let b = UIButton(title: "Create League", titleColor:   UIColor(red: 0.071, green: 0.631, blue: 0.792, alpha: 1), font: AppFont.Bold().twelve, backgroundColor: .white, target: nil, action: nil)
-//              b.withHeight(40)
-//               b.buttonBorder(withRadius:20 , width: 2,color: .white)
-//                 return b
-//             }()
-//          lazy var mockDraft : UIButton = {
-//                 let b = UIButton(title: "Mock Draft", titleColor:   UIColor(red: 0.071, green: 0.631, blue: 0.792, alpha: 1), font: AppFont.Bold().twelve, backgroundColor: .white, target: nil, action: nil)
-//              b.withHeight(40)
-//              b.buttonBorder(withRadius:20 , width: 2,color: .white)
-//                 return b
-//             }()
-       
-    
-    override func setupViews() {
-        super.setupViews()
-       
- addSubview(topMatch)
-        addSubview(AllMatchUps)
-
-        topMatch.anchor(top: safeAreaLayoutGuide.topAnchor, leading: self.leadingAnchor, bottom: nil, trailing: nil, padding: .init(top: 50 + 50 , left: 20, bottom: 0, right: 0), size: .init(width: 0, height: 40))
-        _ = topMatch.widthAnchor.constraint(greaterThanOrEqualToConstant: 60).isActive = true
-        AllMatchUps.anchor(top: safeAreaLayoutGuide.topAnchor, leading: nil, bottom: nil, trailing: self.trailingAnchor, padding: .init(top: 50 + 50 , left: 0, bottom: 0, right: 20), size: .init(width: 100, height: 40))
-        
-//        hstack(topMatch,UIView(),AllMatchUps)
-        
-// 50 menu bar height
-        addSubview(collectionView)
-        collectionView.anchor(top: safeAreaLayoutGuide.topAnchor, leading: self.leadingAnchor, bottom: self.bottomAnchor, trailing: self.trailingAnchor, padding: .init(top: 50 + 50 + 40 , left: 0, bottom: 0, right: 0), size: .zero)
-//        collectionView.fillSuperview(padding: .init(top: 0, left: 0, bottom: 0, right: 0))
-        collectionView.backgroundColor = .white
-        
-        collectionView.register(messageSubCell.self, forCellWithReuseIdentifier: cellId)
-    }
-      
-    
-    func numberOfSections(in collectionView: UICollectionView) -> Int {
-        return 1
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 5
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellId, for: indexPath) as! messageSubCell
- 
-//        cell.video = videos?[indexPath.item]
-        
-        return cell
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return .init(width: frame.width, height: 120)
-        
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
-        return 0
-    }
-    
- 
-    
-    
-}
-
-class messageSubCell: BaseCell {
-    //make component subclass
- lazy var textlabel1: UILabel = {
-    let l = UILabel(text: "HhH...........", font: AppFont.Bold().sixteen, textColor:UIColor(red: 0.004, green: 0.569, blue: 0.784, alpha: 1), textAlignment:.left , numberOfLines: 1)
-  l.backgroundColor = .white
-      return l
-     
- }()
-    lazy var textlabel2: UILabel = {
-       let l = UILabel(text: "Bella Alex", font: AppFont.Medium().sixteen, textColor:UIColor(red: 0, green: 0, blue: 0, alpha: 1), textAlignment:.left, numberOfLines: 1)
-     l.backgroundColor = .white
-         return l
-        
-    }()
-    lazy var textlabel3: UILabel = {
-       let l = UILabel(text: "Team Alex", font: AppFont.Medium().fourteen, textColor:UIColor(red: 0.471, green: 0.471, blue: 0.471, alpha: 1), textAlignment:.left, numberOfLines: 1)
-     l.backgroundColor = .white
-         return l
-        
-    }()
-    lazy var textlabel4: UILabel = {
-    let l = UILabel()
-                        let primaryStr =  "Nov 27  "
-                                let secondaryString = "7:52 PM"
-                        let attributedString = NSMutableAttributedString(string: "\(primaryStr)\(secondaryString)", attributes: [
-                        .font: AppFont.Regular().twelve,
-                        .foregroundColor: UIColor(red: 0.471, green: 0.471, blue: 0.471, alpha: 1)
-                           ])
-          
-                        attributedString.addAttributes([
-                        .font: AppFont.Regular().twelve,
-                        .foregroundColor: UIColor(red: 0, green: 0, blue: 0, alpha: 1)
-                        ], range: NSRange(location: 0, length:  primaryStr.count))
-          
-                                l.attributedText = attributedString
-        l.numberOfLines = 1
-          return l
-      }()
-
-    
-    
-    lazy var replylabel: UILabel = {
-        let l = UILabel(text: "0 Replies", font: AppFont.Regular().sixteen, textColor: UIColor(red: 0, green: 0, blue: 0, alpha: 1), textAlignment:.left, numberOfLines: 1)
-        l.backgroundColor = .white
-            return l
-           
-       }()
-    
-
-//   lazy var image: AspectFitImageView = {
-//             let imageView = AspectFitImageView(image: #imageLiteral(resourceName: "katrina-berban-k24k1INxuxk-unsplash 1"), cornerRadius: 0)
-////    imageView.constrainHeight(100)
-////    imageView.constrainWidth(100)
-//             return  imageView
-//         }()
-// lazy var logoButton: UIButton = {
-//    let b = UIButton(title: "Remove", titleColor: .white, font: AppFont.Medium().twelve, backgroundColor: UIColor(red: 0.906, green: 0.208, blue: 0.192, alpha: 1), target: self, action: nil)
-//
-//
-//     let imageView = AspectFitImageView(image: #imageLiteral(resourceName: "upload 1"), cornerRadius: 0)
-//     let img = imageView.image
-//
-//
-//
-//            b.imageEdgeInsets = .init(top: 0, left: 0, bottom: 0, right: 50)
-//      let imageG = #imageLiteral(resourceName: "upload 1")
-//            b.setImage(imageG.withRenderingMode(UIImage.RenderingMode.alwaysTemplate), for: .normal)
-//    b.tintColor = .white
-//
-//     return b
-// }()
-//
-//    var titleLabelHeightConstraint: NSLayoutConstraint?
-    
-    override func setupViews() {
-        backgroundColor = .white
-        let separator = UIView(backgroundColor: UIColor(red: 0.621, green: 0.621, blue: 0.621, alpha: 1)).withWidth(1)
-        
-        let v1 = stack(textlabel1,textlabel2,textlabel3,textlabel4,UIView().withHeight(5)) .padLeft(10)
-        v1.spacing = 5
-//         let separatorStack1 = stack(UIView(backgroundColor: UIColor(red: 0.621, green: 0.621, blue: 0.621, alpha: 1)).withHeight(1))
-//         separatorStack1.padTop(10).padBottom(10)
-        let v2 = stack(UIView().withHeight(20),replylabel.withHeight(40),UIView())
-//        v2.distribution = .fill
-//        let h1 = hstack(v1,UIView(),v2.withWidth(150))
-//        logoButton.setCorner(withRadius: 20)
-//        h1.spacing = 5
-        let h1 = hstack(v1,UIView(),separator,v2.withWidth(90)).padLeft(10).padRight(10).padTop(10)
-        h1.spacing = 15
-        h1.setCorner(withRadius: 12)
-       
-       
-        setupShadow(opacity: 1, radius: 12, offset: CGSize(width: 0, height: 0), color:   UIColor(red: 0, green: 0, blue: 0, alpha: 0.14))
-    }
-}

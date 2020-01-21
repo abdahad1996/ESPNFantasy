@@ -24,7 +24,7 @@ class Home:BaseListController,UICollectionViewDelegateFlowLayout{
     let cellId = "cellId"
     private let notificationCenter = NotificationCenter.default
 
-    let appLogoImageView = UIImageView(image: #imageLiteral(resourceName: "antasy"), contentMode: .scaleAspectFit)
+    let appLogoImageView = UIImageView(image: #imageLiteral(resourceName: "81442389_475317849847624_2217900444271771648_n").withRenderingMode(.alwaysTemplate), contentMode: .scaleAspectFit)
     lazy var iconButton: UIButton = {
         let button = UIButton(image: #imageLiteral(resourceName: "drop-down-arrow 1"), tintColor:.white, target: self, action: #selector(handleIconTapped))
         return button
@@ -151,10 +151,11 @@ func removeNotification(){
     
     func setUpNavBar(){
 //        navigationController?.hidesBarsOnSwipe = true
+        appLogoImageView.tintColor = .white
         let titleView = UIView(backgroundColor: .clear)
-               let lessWidth: CGFloat = 30 + 20 + 120 + 35
+               let lessWidth: CGFloat = 30 + 20 + 120
                let width = (view.frame.width - lessWidth)
-         titleView.hstack(appLogoImageView.withWidth(120), iconButton.withWidth(30).withHeight(30), UIView().withWidth(width), settingButton.withWidth(20), spacing: 5).padBottom(8)
+        titleView.hstack(appLogoImageView.withHeight(50), iconButton.withWidth(30), UIView().withWidth(width), settingButton.withWidth(20), spacing: 5).padBottom(8)
         
         if let navigationBar = self.navigationController?.navigationBar  {
              determineGradientByIndexPath(navigationBar: navigationBar, index: 0)

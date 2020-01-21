@@ -81,6 +81,24 @@ class leagueManagerTool : LBTAListController<toolListCell, String>,UICollectionV
         dismiss(animated: true, completion: nil)
     //        self.navigationController?.popViewController(animated: true)
         }
+    override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        switch indexPath.item {
+        case 0:
+            
+            let vc = scheduleYourDraft()
+            self.navigationController?.pushViewController(vc, animated: true)
+            
+            case 1:
+                let vc = UINavigationController(rootViewController: editOwners())
+                    vc.modalPresentationStyle = .fullScreen
+                    self.present(vc, animated: true, completion: nil)
+             
+        default:
+            let vc = deleteTools()
+            self.navigationController?.pushViewController(vc, animated: true)
+            return
+        }
+    }
 }
 
 import SwiftUI

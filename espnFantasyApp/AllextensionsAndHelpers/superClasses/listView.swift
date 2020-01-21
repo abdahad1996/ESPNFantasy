@@ -75,6 +75,12 @@ LBTAListHeaderController<PhotoGridCell, obj, StoryHeader>,UICollectionViewDelega
     }
     
     let cellSpacing: CGFloat = 4
+    override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+         let vc = UINavigationController(rootViewController: leagueInfoContainer())
+                          vc.modalPresentationStyle = .fullScreen
+                          self.present(vc, animated: true, completion: nil)
+        
+    }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
       

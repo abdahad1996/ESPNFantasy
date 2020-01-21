@@ -89,7 +89,7 @@ class editTeamInfo : LBTAFormController {
     }()
    
     lazy var logoButton: UIButton = {
-        let b = UIButton(title: "Use an Image From Web", titleColor: UIColor(red: 0.906, green: 0.208, blue: 0.192, alpha: 1), font: AppFont.Bold().twelve, backgroundColor: UIColor(red: 1, green: 0.882, blue: 0.879, alpha: 1), target: self, action: nil)
+        let b = UIButton(title: "Use an Image From Web", titleColor: UIColor(red: 0.906, green: 0.208, blue: 0.192, alpha: 1), font: AppFont.Bold().twelve, backgroundColor: UIColor(red: 1, green: 0.882, blue: 0.879, alpha: 1), target: self, action: #selector(tapOnImageFromWeb))
         
          
         let imageView = AspectFitImageView(image: #imageLiteral(resourceName: "upload 1"), cornerRadius: 0)
@@ -104,6 +104,9 @@ class editTeamInfo : LBTAFormController {
         
         return b
     }()
+    @objc func tapOnImageFromWeb(){
+        self.navigationController?.pushViewController(editTeamMain(), animated: true)
+    }
   
     override func viewDidLoad() {
         super.viewDidLoad()

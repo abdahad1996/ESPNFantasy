@@ -26,7 +26,13 @@ enum Ownersenum:String {
 //    case Play = "Play"
     
 }
+enum myTeam:String{
+    case first = "images"
+    case second = "names"
+    case third = "third"
+    case fourth = "fourth"
 
+}
 enum MessageEnum:String{
     case first = "images"
     case second = "names"

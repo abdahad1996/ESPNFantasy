@@ -86,6 +86,7 @@ struct leagueInfoModel{
 }
 import Foundation
 import UIKit
+
 class LeagueOptions:LBTAListHeaderFooterController<leagueInfocell, leagueInfoModel, leagueInfoHeader,leagueInfoFooter>,UICollectionViewDelegateFlowLayout{
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -99,7 +100,26 @@ class LeagueOptions:LBTAListHeaderFooterController<leagueInfocell, leagueInfoMod
             leagueInfoModel(img: #imageLiteral(resourceName: "Group 78"), name: "Waiver Order"),
             leagueInfoModel(img: #imageLiteral(resourceName: "Group 83"), name: "League Info"),
             leagueInfoModel(img: #imageLiteral(resourceName: "Vector 13"), name: "League Manager Tools"),
+            leagueInfoModel(img: #imageLiteral(resourceName: "Vector 13"), name: "edit team"),
+            
+            
+            
+            leagueInfoModel(img: #imageLiteral(resourceName: "Vector 13"), name: " dummy"),
+//
+//            leagueInfoModel(img: #imageLiteral(resourceName: "Vector 13"), name: "edit team"),
+//
+//
+//            leagueInfoModel(img: #imageLiteral(resourceName: "Vector 13"), name: "League Manager Tools"),
+//                       leagueInfoModel(img: #imageLiteral(resourceName: "Vector 13"), name: "edit team")
         ]
+    }
+    override func viewWillAppear(_ animated: Bool) {
+        print(collectionView.contentSize)
+        collectionView.backgroundColor = .systemGreen
+        collectionView.layoutIfNeeded()
+        print("1")
+        print("viewAppearingbaby")
+        self.collectionViewLayout.invalidateLayout()
     }
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForFooterInSection section: Int) -> CGSize {
         return .init(width: collectionView.frame.width, height: 30)
@@ -109,6 +129,31 @@ class LeagueOptions:LBTAListHeaderFooterController<leagueInfocell, leagueInfoMod
     }
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
          return .init(width: collectionView.frame.width, height: 50)
+    }
+    override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        print(self.items[indexPath.item])
+        switch indexPath.item {
+            //leagueinfo
+        case 6:
+            let vc = UINavigationController(rootViewController: leagueInfoContainer())
+                   vc.modalPresentationStyle = .fullScreen
+                   self.present(vc, animated: true, completion: nil)
+            case 7:
+            let vc = UINavigationController(rootViewController: leagueManagerTool())
+                   vc.modalPresentationStyle = .fullScreen
+                   self.present(vc, animated: true, completion: nil)
+            case 8:
+                       let vc = UINavigationController(rootViewController: editTeamInfo())
+                              vc.modalPresentationStyle = .fullScreen
+                              self.present(vc, animated: true, completion: nil)
+            
+        default:
+            return
+        }
+       
+//        let window = self.view.window
+//
+//               window?.rootViewController = CustomNavigationController(rootViewController: leagueManagerTool())
     }
 }
 import SwiftUI

@@ -86,7 +86,7 @@ class segmentedMenuBar:UIView,UICollectionViewDelegateFlowLayout{
         return cv
     }()
     
-    let imageNames = ["Dashboard", "rugby1", "basketBall", "hockey","baseball","play"]
+    let imageNames = ["Dashboard", "rugby", "basketBall", "hockey","baseball","play"]
 
     override init(frame: CGRect) {
         super.init(frame: frame)

@@ -110,7 +110,7 @@ class BasketBallCells: BaseCell {
         v2.distribution = .fill
         let v3 = stack(v2,h2)
         
-        let mainContainer = stack(h1.withHeight(100),v3).padLeft(10).padRight(10).padTop(10).padBottom(10)
+        let mainContainer = stack(h1.withHeight(100),v3).padLeft(10).padRight(15).padTop(10).padBottom(10)
         mainContainer.spacing = -10
         
        

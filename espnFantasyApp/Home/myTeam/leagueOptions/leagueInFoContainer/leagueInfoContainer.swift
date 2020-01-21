@@ -42,8 +42,8 @@ class leagueInfoContainer:BaseListController,UICollectionViewDelegateFlowLayout{
     
         return button
     }()
-    lazy var menuBar: segmentedMenuText = {
-        let mb = segmentedMenuText()
+    lazy var menuBar: segmentedMenuText2 = {
+        let mb = segmentedMenuText2()
         
 //        mb.homeController = self
         mb.delegate = self

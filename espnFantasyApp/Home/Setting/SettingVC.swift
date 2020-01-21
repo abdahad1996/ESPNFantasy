@@ -120,6 +120,11 @@ class SettingVC:BaseListController,UICollectionViewDelegateFlowLayout{
             let vc = accountInformation()
             self.navigationController?.pushViewController(vc, animated: true)
         }
+        if indexPath.section == 0 && indexPath.item == 1 {
+                   let vc = FantasySubscription()
+                   self.navigationController?.pushViewController(vc, animated: true)
+               }
+        
     }
     override func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
         switch kind {
