@@ -101,6 +101,8 @@
 		1657F92623ABEF8B00DECB40 /* BaseBallCells.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1657F92523ABEF8B00DECB40 /* BaseBallCells.swift */; };
 		1657F92823ABEFA900DECB40 /* BasketBall.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1657F92723ABEFA900DECB40 /* BasketBall.swift */; };
 		1657F92A23ABEFB700DECB40 /* BasketBallCells.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1657F92923ABEFB700DECB40 /* BasketBallCells.swift */; };
+		1659FB1523DE21A700C921AE /* FAShimmerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1659FB1423DE21A700C921AE /* FAShimmerView.swift */; };
+		1659FB1723DF4AC300C921AE /* BasketballVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1659FB1623DF4AC300C921AE /* BasketballVC.swift */; };
 		167C642723C3F639008D5134 /* DefaultVc.swift in Sources */ = {isa = PBXBuildFile; fileRef = 167C642623C3F639008D5134 /* DefaultVc.swift */; };
 		F86261D323B493F100B5C595 /* accountInformation.swift in Sources */ = {isa = PBXBuildFile; fileRef = F86261D223B493F100B5C595 /* accountInformation.swift */; };
 		F86261D523B4A89700B5C595 /* FantasySubscription.swift in Sources */ = {isa = PBXBuildFile; fileRef = F86261D423B4A89700B5C595 /* FantasySubscription.swift */; };
@@ -206,6 +208,8 @@
 		1657F92523ABEF8B00DECB40 /* BaseBallCells.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseBallCells.swift; sourceTree = "<group>"; };
 		1657F92723ABEFA900DECB40 /* BasketBall.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasketBall.swift; sourceTree = "<group>"; };
 		1657F92923ABEFB700DECB40 /* BasketBallCells.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasketBallCells.swift; sourceTree = "<group>"; };
+		1659FB1423DE21A700C921AE /* FAShimmerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FAShimmerView.swift; sourceTree = "<group>"; };
+		1659FB1623DF4AC300C921AE /* BasketballVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasketballVC.swift; sourceTree = "<group>"; };
 		167C642623C3F639008D5134 /* DefaultVc.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultVc.swift; sourceTree = "<group>"; };
 		F86261D223B493F100B5C595 /* accountInformation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = accountInformation.swift; sourceTree = "<group>"; };
 		F86261D423B4A89700B5C595 /* FantasySubscription.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FantasySubscription.swift; sourceTree = "<group>"; };
@@ -324,6 +328,7 @@
 				1613F21F23A1AA6E00FA5056 /* UITextView.swift */,
 				1657F90F23A6865F00DECB40 /* gradientNavBar.swift */,
 				F8BC3F2323B61812008D4117 /* notificationName.swift */,
+				1659FB1423DE21A700C921AE /* FAShimmerView.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -547,9 +552,18 @@
 			path = Hockey;
 			sourceTree = "<group>";
 		};
+		1659FB1823DF4AE000C921AE /* SignedInHome */ = {
+			isa = PBXGroup;
+			children = (
+				1659FB1623DF4AC300C921AE /* BasketballVC.swift */,
+			);
+			path = SignedInHome;
+			sourceTree = "<group>";
+		};
 		16A6301823A6344200F0FAF0 /* Home */ = {
 			isa = PBXGroup;
 			children = (
+				1659FB1823DF4AE000C921AE /* SignedInHome */,
 				165413FB23BA16E7001DED6A /* myTeam */,
 				165413F023B9F4AE001DED6A /* MessagesContainer */,
 				165413E523B9EA0F001DED6A /* editOwnerContainer */,
@@ -698,6 +712,7 @@
 				160D9C4823B3B498004BE0DC /* SettingVC.swift in Sources */,
 				1619419823B8C8B50058F344 /* scheduleYourDraft.swift in Sources */,
 				1613F1FF23A1AA5800FA5056 /* SceneDelegate.swift in Sources */,
+				1659FB1723DF4AC300C921AE /* BasketballVC.swift in Sources */,
 				1657F90E23A672F100DECB40 /* Home.swift in Sources */,
 				16161C7423AFC77300A4F9C0 /* RugbyVideoCell.swift in Sources */,
 				165413FE23BA183A001DED6A /* leagueInfoContainer.swift in Sources */,
@@ -720,6 +735,7 @@
 				16161C7623B1278900A4F9C0 /* Hockey.swift in Sources */,
 				1613F23423A1AA6E00FA5056 /* UITextView.swift in Sources */,
 				1657F90A23A66F0900DECB40 /* BetterSnappingLayout.swift in Sources */,
+				1659FB1523DE21A700C921AE /* FAShimmerView.swift in Sources */,
 				1657F91723AABE2E00DECB40 /* Dashboard.swift in Sources */,
 				167C642723C3F639008D5134 /* DefaultVc.swift in Sources */,
 				1657F92823ABEFA900DECB40 /* BasketBall.swift in Sources */,
