@@ -10,6 +10,85 @@ import Foundation
 import UIKit
 
 class CardView:UIView{
+    
+        
+          public var cornerRadius: CGFloat {
+            get {
+                return layer.cornerRadius
+            }
+            
+            set {
+                layer.cornerRadius = newValue
+            }
+        }
+         public var borderWidth: CGFloat {
+            get {
+                return layer.borderWidth
+            }
+            
+            set {
+                layer.borderWidth = newValue
+            }
+        }
+         public var borderColor: UIColor {
+            get {
+                return UIColor(cgColor: layer.borderColor ?? UIColor.clear.cgColor)
+            }
+            
+            set {
+                layer.borderColor = newValue.cgColor
+            }
+        }
+        
+      
+        var shadowRadius: CGFloat {
+            get {
+                return layer.shadowRadius
+            }
+            set {
+                layer.shadowRadius = newValue
+            }
+        }
+        
+         
+        var shadowOpacity: Float {
+            get {
+                return layer.shadowOpacity
+            }
+            set {
+                layer.shadowOpacity = newValue
+            }
+        }
+        
+       
+        var shadowOffset: CGSize {
+            get {
+                return layer.shadowOffset
+            }
+            set {
+                layer.shadowOffset = newValue
+            }
+        }
+        
+       
+        var shadowColor: UIColor? {
+            get {
+                if let color = layer.shadowColor {
+                    return UIColor(cgColor: color)
+                }
+                return nil
+            }
+            set {
+                if let color = newValue {
+                    layer.shadowColor = color.cgColor
+                } else {
+                    layer.shadowColor = nil
+                }
+            }
+        }
+    
+
+
     override init(frame: CGRect) {
         super.init(frame: frame)
         
@@ -50,7 +129,7 @@ class CardView:UIView{
         
            
     }
-      
+     
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")

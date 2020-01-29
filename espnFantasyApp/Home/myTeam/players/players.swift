@@ -21,9 +21,9 @@ class Players:BaseCell{
     //    imageView.constrainWidth(100)
                  return  imageView
              }()
-    let vc = LeagueOptions()
+    let vc = playersCollectionVC()
     override func setupViews() {
-        stack(image).padTop(100)
+        stack(vc.view).padTop(100)
 //        image.anchor(top: safeAreaLayoutGuide.topAnchor, leading: self.leadingAnchor, bottom: self.safeAreaLayoutGuide.bottomAnchor, trailing: self.trailingAnchor, padding: .init(top: 50 + 50 , left: 0, bottom: 0, right: 0), size: .init(width: 0, height: 100))
     }
 }
@@ -207,23 +207,90 @@ class Players:BaseCell{
 //
 //
 //
-////import SwiftUI
-////struct player:PreviewProvider{
-////    static var previews: some View {
-//////        Text("main preview 123123")
-////        ContainerView().edgesIgnoringSafeArea(.all)
-////    }
-////
-////    struct ContainerView: UIViewControllerRepresentable {
-////        func makeUIViewController(context: UIViewControllerRepresentableContext<player.ContainerView>) -> UIViewController {
-////            Players()
-////        }
-////
-////        func updateUIViewController(_ uiViewController: UIViewController, context: UIViewControllerRepresentableContext<player.ContainerView>) {
-////
-////        }
-////
-////
-////
-////    }
-////}
+import SwiftUI
+ struct playersCollection:PreviewProvider{
+    static var previews: some View {
+//        Text("main preview 123123")
+        ContainerView().edgesIgnoringSafeArea(.all)
+    }
+    
+    struct ContainerView: UIViewControllerRepresentable {
+        func makeUIViewController(context: UIViewControllerRepresentableContext<playersCollection.ContainerView>) -> UIViewController {
+           UINavigationController(rootViewController: playersCollectionVC())
+        }
+        
+        func updateUIViewController(_ uiViewController: UIViewController, context: UIViewControllerRepresentableContext<playersCollection.ContainerView>) {
+             
+        }
+        
+        
+       
+    }
+}
+
+class playersCollectionVC:UIViewController{
+     let cellID = "cellid"
+     lazy var collectionView: UICollectionView = {
+            let layout = UICollectionViewFlowLayout()
+            let cv = UICollectionView(frame: .zero, collectionViewLayout: layout)
+             cv.dataSource = self
+            cv.delegate = self
+            return cv
+        }()
+    lazy var tf: UITextField = {
+        let tf = IndentedTextField(placeholder: "Search", padding: 45, cornerRadius: 35, keyboardType: .asciiCapable, backgroundColor: .clear, isSecureTextEntry: false)
+        tf.setView(.left, image: #imageLiteral(resourceName: "search (1) 1"), width: 20, height: 20, space:15, target: nil, action: nil, tintColor: .red)
+        tf.setCorner(withRadius: 20, borderWidth: 1, color: .red)
+        tf.attributedPlaceholder =  NSAttributedString(string:"Search", attributes:[NSAttributedString.Key.foregroundColor: UIColor.init(red: 1, green: 0, blue: 0, alpha: 1)])
+        return tf
+    }()
+        lazy var icon : UIButton = {
+            let b = UIButton(image: #imageLiteral(resourceName: "drop-down-arrow 1"), tintColor: .red, target: self, action: nil)
+                  return b
+              }()
+              lazy var stateViewLabel : UIButton = {
+                let b = UIButton(title: "Stats View", titleColor:.black, font: AppFont.Bold().twelve, backgroundColor: .white, target: nil, action: nil)
+    
+                     return b
+                 }()
+              lazy var stats : UIButton = {
+                     let b = UIButton(title: "2020 Stats", titleColor:   UIColor(red: 0.906, green: 0.271, blue: 0.216, alpha: 1), font: AppFont.Medium().twelve, backgroundColor: .white, target: nil, action: nil)
+    
+                     return b
+                 }()
+           
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+      
+ 
+        view.addSubview(tf)
+        view.addSubview(stats)
+        view.addSubview(stateViewLabel)
+        view.addSubview(icon)
+        view.addSubview(collectionView)
+        
+        stateViewLabel.anchor(top: tf.topAnchor, leading: tf.trailingAnchor, bottom: nil, trailing: view.trailingAnchor, padding: .init(top: 0, left: 20, bottom: 0, right: 20), size: .init(width: 0, height: 20))
+         stats.anchor(top: stateViewLabel.bottomAnchor, leading: stateViewLabel.leadingAnchor, bottom: nil, trailing: stateViewLabel.trailingAnchor, padding: .init(top: 0, left: 0, bottom: 0, right: 0), size: .init(width: 0, height: 20))
+        icon.anchor(top: stats.topAnchor, leading: stats.trailingAnchor, bottom: stats.bottomAnchor, trailing: view.trailingAnchor, padding: .init(top: 0, left: 0, bottom: 0, right: 0), size: .zero)
+        
+        tf.anchor(top: view.safeAreaLayoutGuide.topAnchor, leading: view.leadingAnchor, bottom: nil, trailing: nil, padding: .init(top: 50, left: 20, bottom: 0, right: 0), size: .init(width: 0, height: 40))
+        collectionView.register(segmentedMenutextCell.self, forCellWithReuseIdentifier: cellID)
+
+        collectionView.anchor(top: tf.bottomAnchor, leading: view.leadingAnchor, bottom: view.bottomAnchor, trailing: view.trailingAnchor, padding: .init(top: 10, left: 0, bottom: 0, right: 0), size: .zero)
+        
+    }
+}
+extension playersCollectionVC:UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout{
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        5
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier:cellID, for: indexPath) as! segmentedMenutextCell
+        return cell
+        
+    }
+    
+    
+}

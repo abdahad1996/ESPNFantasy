@@ -226,13 +226,38 @@ func removeNotification(){
             identifier = myTeam.third.rawValue
 
                                 guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: identifier, for: indexPath) as? Players else{return UICollectionViewCell() }
+            
+                    
                     return cell
             
         default:
              
                      identifier = myTeam.fourth.rawValue
                                             guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: identifier, for: indexPath) as? leagueOptionsMainCell else{return UICollectionViewCell() }
-                                return cell
+                     //callback
+        cell.vc.didSelect =
+            { [weak self] index in
+                if index == 6 {
+                let vc = UINavigationController(rootViewController: leagueInfoContainer())
+                vc.modalPresentationStyle = .fullScreen
+                self?.present(vc, animated: true, completion: nil)
+                        }
+                        
+                if index == 7 {
+                let vc = UINavigationController(rootViewController: leagueManagerTool())
+                vc.modalPresentationStyle = .fullScreen
+                self?.present(vc, animated: true, completion: nil)
+                        }
+                        
+                if index == 8 {
+                let vc = UINavigationController(rootViewController: editTeamInfo())
+                vc.modalPresentationStyle = .fullScreen
+                self?.present(vc, animated: true, completion: nil)
+                        }
+            
+                     }
+                     
+                        return cell
 
 
         }

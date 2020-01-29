@@ -21,7 +21,7 @@ class leagueOptionsMainCell:BaseCell{
     }()
     override func setupViews() {
         addSubview(vc.view)
-        vc.view.anchor(top: self.topAnchor, leading: self.leadingAnchor, bottom: self.bottomAnchor, trailing: self.trailingAnchor, padding: .init(top: 40, left: 0, bottom: 0, right: 0), size: .zero)        
+        vc.view.anchor(top: self.topAnchor, leading: self.leadingAnchor, bottom: self.bottomAnchor, trailing: self.trailingAnchor, padding: .init(top: 50, left: 0, bottom:10, right: 0), size: .zero)
 //        vc.view.frame = CGRect(x: 0, y: 40, width: , height: )
 //        self.frame = vc.collectionView.bounds
           self.autoresizingMask = [.flexibleWidth, .flexibleHeight]

@@ -134,7 +134,11 @@ func removeNotification(){
          collectionView?.register(Rugby.self, forCellWithReuseIdentifier: HomeSettings.Rugby.rawValue)
         
          collectionView?.register(BasketBall.self, forCellWithReuseIdentifier: HomeSettings.BasketBall.rawValue)
+        collectionView?.register(BasketBallSignedInCell.self, forCellWithReuseIdentifier: HomeSettings.BasketBall.rawValue)
+         
         collectionView?.register(Hockey.self, forCellWithReuseIdentifier: HomeSettings.Hockey.rawValue)
+         collectionView?.register(HockeyCell.self, forCellWithReuseIdentifier: HomeSettings.Hockey.rawValue)
+        
          collectionView?.register(Baseball.self, forCellWithReuseIdentifier: HomeSettings.Baseball.rawValue)
           collectionView?.register(Play.self, forCellWithReuseIdentifier:         HomeSettings.Play.rawValue)
 
@@ -208,15 +212,31 @@ func removeNotification(){
 
             case 2:
                 identifier = HomeSettings.BasketBall.rawValue
-                        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: identifier, for: indexPath) as? BasketBall
-                             else{return UICollectionViewCell() }
-            return cell
+                if !AppConfiguration.isSignedIn {
+                    guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: identifier, for: indexPath) as? BasketBall
+                                                else{return UICollectionViewCell() }
+                                return cell
+                }
+                else{
+                    guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: identifier, for: indexPath) as? BasketBallSignedInCell
+                                                                   else{return UICollectionViewCell() }
+//                    cell.selectedColor = UIColor(red: 0.906, green: 0.271, blue: 0.216, alpha: 1)
+                                                   return cell
+            }
+                       
 
             case 3:
-                         identifier = HomeSettings.Hockey.rawValue
-                                                guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: identifier, for: indexPath) as? Hockey else{return UICollectionViewCell() }
-                                    return cell
+                identifier = HomeSettings.Hockey.rawValue
+                if !AppConfiguration.isSignedIn {
+                    guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: identifier, for: indexPath) as? Hockey else{return UICollectionViewCell() }
+                                                       return cell
 
+                }else{
+                    guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: identifier, for: indexPath) as? HockeyCell else{return UICollectionViewCell() }
+                    return cell
+
+                }
+                        
             case 4:
                           identifier = HomeSettings.Baseball.rawValue
                                                 guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: identifier, for: indexPath) as? Baseball else{return UICollectionViewCell() }

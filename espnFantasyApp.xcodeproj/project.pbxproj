@@ -103,6 +103,10 @@
 		1657F92A23ABEFB700DECB40 /* BasketBallCells.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1657F92923ABEFB700DECB40 /* BasketBallCells.swift */; };
 		1659FB1523DE21A700C921AE /* FAShimmerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1659FB1423DE21A700C921AE /* FAShimmerView.swift */; };
 		1659FB1723DF4AC300C921AE /* BasketballVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1659FB1623DF4AC300C921AE /* BasketballVC.swift */; };
+		1659FB1A23E099D600C921AE /* BasketBallSignedInCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1659FB1923E099D600C921AE /* BasketBallSignedInCell.swift */; };
+		1659FB1C23E09A5000C921AE /* AppConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1659FB1B23E09A5000C921AE /* AppConfiguration.swift */; };
+		1659FB2123E0A56200C921AE /* HockeyVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1659FB2023E0A56200C921AE /* HockeyVC.swift */; };
+		1659FB2323E0A57700C921AE /* HockeyCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1659FB2223E0A57700C921AE /* HockeyCell.swift */; };
 		167C642723C3F639008D5134 /* DefaultVc.swift in Sources */ = {isa = PBXBuildFile; fileRef = 167C642623C3F639008D5134 /* DefaultVc.swift */; };
 		F86261D323B493F100B5C595 /* accountInformation.swift in Sources */ = {isa = PBXBuildFile; fileRef = F86261D223B493F100B5C595 /* accountInformation.swift */; };
 		F86261D523B4A89700B5C595 /* FantasySubscription.swift in Sources */ = {isa = PBXBuildFile; fileRef = F86261D423B4A89700B5C595 /* FantasySubscription.swift */; };
@@ -210,6 +214,10 @@
 		1657F92923ABEFB700DECB40 /* BasketBallCells.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasketBallCells.swift; sourceTree = "<group>"; };
 		1659FB1423DE21A700C921AE /* FAShimmerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FAShimmerView.swift; sourceTree = "<group>"; };
 		1659FB1623DF4AC300C921AE /* BasketballVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasketballVC.swift; sourceTree = "<group>"; };
+		1659FB1923E099D600C921AE /* BasketBallSignedInCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasketBallSignedInCell.swift; sourceTree = "<group>"; };
+		1659FB1B23E09A5000C921AE /* AppConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppConfiguration.swift; sourceTree = "<group>"; };
+		1659FB2023E0A56200C921AE /* HockeyVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HockeyVC.swift; sourceTree = "<group>"; };
+		1659FB2223E0A57700C921AE /* HockeyCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HockeyCell.swift; sourceTree = "<group>"; };
 		167C642623C3F639008D5134 /* DefaultVc.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultVc.swift; sourceTree = "<group>"; };
 		F86261D223B493F100B5C595 /* accountInformation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = accountInformation.swift; sourceTree = "<group>"; };
 		F86261D423B4A89700B5C595 /* FantasySubscription.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FantasySubscription.swift; sourceTree = "<group>"; };
@@ -358,6 +366,7 @@
 				1613F24323A2A3AA00FA5056 /* colors.swift */,
 				1613F26223A4F00400FA5056 /* Fonts.swift */,
 				1657F90B23A6715E00DECB40 /* Enums.swift */,
+				1659FB1B23E09A5000C921AE /* AppConfiguration.swift */,
 			);
 			path = Constants;
 			sourceTree = "<group>";
@@ -555,26 +564,53 @@
 		1659FB1823DF4AE000C921AE /* SignedInHome */ = {
 			isa = PBXGroup;
 			children = (
-				1659FB1623DF4AC300C921AE /* BasketballVC.swift */,
+				1659FB1F23E0A39C00C921AE /* Hockey */,
+				1659FB1E23E0A38700C921AE /* BasketBall */,
 			);
 			path = SignedInHome;
 			sourceTree = "<group>";
 		};
-		16A6301823A6344200F0FAF0 /* Home */ = {
+		1659FB1D23E0A1D800C921AE /* SignInLessHome */ = {
 			isa = PBXGroup;
 			children = (
-				1659FB1823DF4AE000C921AE /* SignedInHome */,
-				165413FB23BA16E7001DED6A /* myTeam */,
-				165413F023B9F4AE001DED6A /* MessagesContainer */,
-				165413E523B9EA0F001DED6A /* editOwnerContainer */,
-				160D9C4623B37791004BE0DC /* Setting */,
-				1657F90D23A672F100DECB40 /* Home.swift */,
 				1657F91C23AABE8400DECB40 /* Hockey */,
 				1657F91B23AABE7B00DECB40 /* Play */,
 				1657F91A23AABE7000DECB40 /* BasketBall */,
 				1657F91923AABE6900DECB40 /* Baseball */,
 				1657F91823AABE4300DECB40 /* Rugby */,
 				1657F91523AABDFF00DECB40 /* Dashboard */,
+			);
+			path = SignInLessHome;
+			sourceTree = "<group>";
+		};
+		1659FB1E23E0A38700C921AE /* BasketBall */ = {
+			isa = PBXGroup;
+			children = (
+				1659FB1623DF4AC300C921AE /* BasketballVC.swift */,
+				1659FB1923E099D600C921AE /* BasketBallSignedInCell.swift */,
+			);
+			path = BasketBall;
+			sourceTree = "<group>";
+		};
+		1659FB1F23E0A39C00C921AE /* Hockey */ = {
+			isa = PBXGroup;
+			children = (
+				1659FB2023E0A56200C921AE /* HockeyVC.swift */,
+				1659FB2223E0A57700C921AE /* HockeyCell.swift */,
+			);
+			path = Hockey;
+			sourceTree = "<group>";
+		};
+		16A6301823A6344200F0FAF0 /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				1657F90D23A672F100DECB40 /* Home.swift */,
+				1659FB1D23E0A1D800C921AE /* SignInLessHome */,
+				1659FB1823DF4AE000C921AE /* SignedInHome */,
+				165413FB23BA16E7001DED6A /* myTeam */,
+				165413F023B9F4AE001DED6A /* MessagesContainer */,
+				165413E523B9EA0F001DED6A /* editOwnerContainer */,
+				160D9C4623B37791004BE0DC /* Setting */,
 				162B714523B88EE900DCD2B7 /* leagueManagerTool.swift */,
 				1619419523B8BE080058F344 /* deleteTools.swift */,
 				1619419723B8C8B50058F344 /* scheduleYourDraft.swift */,
@@ -708,10 +744,12 @@
 				1657F90223A66E3900DECB40 /* BaseListController.swift in Sources */,
 				1613F1FD23A1AA5800FA5056 /* AppDelegate.swift in Sources */,
 				1619419623B8BE080058F344 /* deleteTools.swift in Sources */,
+				1659FB2123E0A56200C921AE /* HockeyVC.swift in Sources */,
 				1657F92423ABEF7A00DECB40 /* Baseball.swift in Sources */,
 				160D9C4823B3B498004BE0DC /* SettingVC.swift in Sources */,
 				1619419823B8C8B50058F344 /* scheduleYourDraft.swift in Sources */,
 				1613F1FF23A1AA5800FA5056 /* SceneDelegate.swift in Sources */,
+				1659FB2323E0A57700C921AE /* HockeyCell.swift in Sources */,
 				1659FB1723DF4AC300C921AE /* BasketballVC.swift in Sources */,
 				1657F90E23A672F100DECB40 /* Home.swift in Sources */,
 				16161C7423AFC77300A4F9C0 /* RugbyVideoCell.swift in Sources */,
@@ -729,6 +767,7 @@
 				162B714423B796DD00DCD2B7 /* buttonWithImageLeftAndRight.swift in Sources */,
 				164F969623B9567A001A3915 /* LogoScreen.swift in Sources */,
 				162B713E23B6C8E600DCD2B7 /* checkBox_label.swift in Sources */,
+				1659FB1A23E099D600C921AE /* BasketBallSignedInCell.swift in Sources */,
 				F86261D523B4A89700B5C595 /* FantasySubscription.swift in Sources */,
 				F8BC3F2423B61812008D4117 /* notificationName.swift in Sources */,
 				1613F24623A2E6A400FA5056 /* SignUp.swift in Sources */,
@@ -760,6 +799,7 @@
 				1613F23A23A1AA6F00FA5056 /* LBTAListHeaderFooterController.swift in Sources */,
 				16161C7223AF5E6300A4F9C0 /* CardView.swift in Sources */,
 				1654140123BA3B86001DED6A /* LeagueOptions.swift in Sources */,
+				1659FB1C23E09A5000C921AE /* AppConfiguration.swift in Sources */,
 				164F969A23B96E33001A3915 /* segmentedMenuText.swift in Sources */,
 				16161C7823B127B000A4F9C0 /* HockeyCells.swift in Sources */,
 				1657F92223ABEF6A00DECB40 /* RugbyCells.swift in Sources */,

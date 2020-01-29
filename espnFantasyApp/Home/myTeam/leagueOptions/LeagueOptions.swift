@@ -52,7 +52,7 @@ class leagueInfoHeader: UICollectionReusableView {
     override init(frame: CGRect) {
         super.init(frame: frame)
 //        backgroundColor = .yellow
-        stack(Label1,Label2).padLeft(10).padTop(10)
+        stack(Label1,Label2).padLeft(10).padTop(30)
          
     }
     
@@ -71,7 +71,7 @@ class leagueInfoFooter: UICollectionReusableView {
     override init(frame: CGRect) {
         super.init(frame: frame)
 //        backgroundColor = .yellow
-        stack(Label1).padLeft(10).padTop(10)
+        stack(Label1).padLeft(10).padTop(10).padBottom(20)
          
     }
     
@@ -88,9 +88,12 @@ import Foundation
 import UIKit
 
 class LeagueOptions:LBTAListHeaderFooterController<leagueInfocell, leagueInfoModel, leagueInfoHeader,leagueInfoFooter>,UICollectionViewDelegateFlowLayout{
+    
+    var didSelect : ( (Int) -> ())?
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        collectionView.scrollIndicatorInsets = .init(top: 0, left: 0, bottom: 50, right: 0)
+        collectionView.contentInset = .init(top: 0, left: 0, bottom: 50, right: 0)
         self.items = [
             leagueInfoModel(img: #imageLiteral(resourceName: "Group 80"), name: "Scoreboard"),
             leagueInfoModel(img: #imageLiteral(resourceName: "Group 81"), name: "Standings"),
@@ -105,6 +108,7 @@ class LeagueOptions:LBTAListHeaderFooterController<leagueInfocell, leagueInfoMod
             
             
             leagueInfoModel(img: #imageLiteral(resourceName: "Vector 13"), name: " dummy"),
+            
 //
 //            leagueInfoModel(img: #imageLiteral(resourceName: "Vector 13"), name: "edit team"),
 //
@@ -114,18 +118,16 @@ class LeagueOptions:LBTAListHeaderFooterController<leagueInfocell, leagueInfoMod
         ]
     }
     override func viewWillAppear(_ animated: Bool) {
+        print("contentsize")
         print(collectionView.contentSize)
-        collectionView.backgroundColor = .systemGreen
-        collectionView.layoutIfNeeded()
-        print("1")
-        print("viewAppearingbaby")
-        self.collectionViewLayout.invalidateLayout()
+        
     }
+    
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForFooterInSection section: Int) -> CGSize {
-        return .init(width: collectionView.frame.width, height: 30)
+        return .init(width: collectionView.frame.width, height: 60)
     }
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
-        return .init(width: collectionView.frame.width, height: 60)
+        return .init(width: collectionView.frame.width, height: 80)
     }
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
          return .init(width: collectionView.frame.width, height: 50)
@@ -135,17 +137,21 @@ class LeagueOptions:LBTAListHeaderFooterController<leagueInfocell, leagueInfoMod
         switch indexPath.item {
             //leagueinfo
         case 6:
-            let vc = UINavigationController(rootViewController: leagueInfoContainer())
-                   vc.modalPresentationStyle = .fullScreen
-                   self.present(vc, animated: true, completion: nil)
+             didSelect?(6)
+//            let vc = UINavigationController(rootViewController: leagueInfoContainer())
+//                   vc.modalPresentationStyle = .fullScreen
+//                   self.present(vc, animated: true, completion: nil)
             case 7:
-            let vc = UINavigationController(rootViewController: leagueManagerTool())
-                   vc.modalPresentationStyle = .fullScreen
-                   self.present(vc, animated: true, completion: nil)
+                didSelect?(7)
+
+//            let vc = UINavigationController(rootViewController: leagueManagerTool())
+//                   vc.modalPresentationStyle = .fullScreen
+//                   self.present(vc, animated: true, completion: nil)
             case 8:
-                       let vc = UINavigationController(rootViewController: editTeamInfo())
-                              vc.modalPresentationStyle = .fullScreen
-                              self.present(vc, animated: true, completion: nil)
+                didSelect?(8)
+//                       let vc = UINavigationController(rootViewController: editTeamInfo())
+//                              vc.modalPresentationStyle = .fullScreen
+//                              self.present(vc, animated: true, completion: nil)
             
         default:
             return

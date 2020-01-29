@@ -65,10 +65,10 @@ class Login: LBTAFormController {
            print("hellll")
            let window = self.view.window
          
-//         window?.rootViewController = CustomNavigationController(rootViewController: defaultVC())
+         window?.rootViewController = CustomNavigationController(rootViewController: Home())
 //
 //         window?.rootViewController = CustomNavigationController(rootViewController: MyTeamContainer())
-        window?.rootViewController = CustomNavigationController(rootViewController: logoScreen())
+//        window?.rootViewController = CustomNavigationController(rootViewController: logoScreen())
         
         }
     @objc func goToSignUpTapped(){

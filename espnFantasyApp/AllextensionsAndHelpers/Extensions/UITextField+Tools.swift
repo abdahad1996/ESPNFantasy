@@ -19,7 +19,7 @@ extension UITextField {
     }
     
     // (1) add general view to either right or left of view
-    func setView(_ type: ViewType, with view: UIView) {
+    private func setView(_ type: ViewType, with view: UIView) {
         if type == ViewType.left {
             leftView = view
             leftViewMode = .always
