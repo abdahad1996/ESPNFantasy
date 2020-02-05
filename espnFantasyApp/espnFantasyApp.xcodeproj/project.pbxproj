@@ -107,6 +107,7 @@
 		1659FB1C23E09A5000C921AE /* AppConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1659FB1B23E09A5000C921AE /* AppConfiguration.swift */; };
 		1659FB2123E0A56200C921AE /* HockeyVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1659FB2023E0A56200C921AE /* HockeyVC.swift */; };
 		1659FB2323E0A57700C921AE /* HockeyCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1659FB2223E0A57700C921AE /* HockeyCell.swift */; };
+		1659FB2523E1487600C921AE /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1659FB2423E1487600C921AE /* Default-568h@2x.png */; };
 		167C642723C3F639008D5134 /* DefaultVc.swift in Sources */ = {isa = PBXBuildFile; fileRef = 167C642623C3F639008D5134 /* DefaultVc.swift */; };
 		F86261D323B493F100B5C595 /* accountInformation.swift in Sources */ = {isa = PBXBuildFile; fileRef = F86261D223B493F100B5C595 /* accountInformation.swift */; };
 		F86261D523B4A89700B5C595 /* FantasySubscription.swift in Sources */ = {isa = PBXBuildFile; fileRef = F86261D423B4A89700B5C595 /* FantasySubscription.swift */; };
@@ -218,6 +219,7 @@
 		1659FB1B23E09A5000C921AE /* AppConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppConfiguration.swift; sourceTree = "<group>"; };
 		1659FB2023E0A56200C921AE /* HockeyVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HockeyVC.swift; sourceTree = "<group>"; };
 		1659FB2223E0A57700C921AE /* HockeyCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HockeyCell.swift; sourceTree = "<group>"; };
+		1659FB2423E1487600C921AE /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		167C642623C3F639008D5134 /* DefaultVc.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultVc.swift; sourceTree = "<group>"; };
 		F86261D223B493F100B5C595 /* accountInformation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = accountInformation.swift; sourceTree = "<group>"; };
 		F86261D423B4A89700B5C595 /* FantasySubscription.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FantasySubscription.swift; sourceTree = "<group>"; };
@@ -250,6 +252,7 @@
 		1613F1F023A1AA5800FA5056 = {
 			isa = PBXGroup;
 			children = (
+				1659FB2423E1487600C921AE /* Default-568h@2x.png */,
 				1613F1FB23A1AA5800FA5056 /* espnFantasyApp */,
 				1613F1FA23A1AA5800FA5056 /* Products */,
 			);
@@ -697,6 +700,7 @@
 				1613F20923A1AA5E00FA5056 /* LaunchScreen.storyboard in Resources */,
 				1613F25D23A4EE1B00FA5056 /* Roboto-Thin.ttf in Resources */,
 				1613F25A23A4EE1B00FA5056 /* Roboto-Black.ttf in Resources */,
+				1659FB2523E1487600C921AE /* Default-568h@2x.png in Resources */,
 				1613F20623A1AA5E00FA5056 /* Preview Assets.xcassets in Resources */,
 				1613F25E23A4EE1B00FA5056 /* Roboto-BlackItalic.ttf in Resources */,
 				1613F25B23A4EE1B00FA5056 /* Roboto-LightItalic.ttf in Resources */,
